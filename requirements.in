@@ -1,1 +1,6 @@
 numpy
+pandas
+plotly
+scikit-learn
+sys
+matplotlib
