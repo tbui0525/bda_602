@@ -31,40 +31,44 @@ def summary(iris, feat):  # just a function so I don't have to type print over a
 
 def diff_of_mean(iris, species, variable):
     fig = make_subplots(specs=[[{"secondary_y": True}]])  # This was taken from:
-    str_arg = 'species == "' + species + '"'
-    # This had to deal with the messiness of strings in another string
-    other_str_arg = 'species != "' + species + '"'
-    spec = iris.query(str_arg)
-    not_specs = iris.query(other_str_arg)
+    dummies = pd.get_dummies(iris["species"])
+    data = iris[variable]
+    maxi = np.max(data)
+    mini = np.min(data)
+    step = (maxi - mini) / 5
     fig.add_trace(
-        go.Bar(
-            x=[species, "not " + species],
-            y=[len(spec), len(not_specs)],
-            name="Count of Each Species",
-        ),
-        secondary_y=False,
+        go.Histogram(x=data, xbins=dict(start=mini, end=maxi, size=step), name="count")
     )
     fig.add_trace(
         go.Scatter(
-            x=[species, "not " + species],
-            y=[np.mean(spec[variable]), np.mean(not_specs[variable])],
-            name="Mu",
+            x=data, y=np.ones(len(data)) * np.mean(dummies[species]), name=r"$\mu_0$"
         ),
         secondary_y=True,
+    )  # horizontal line
+    # computing proportion in each bin
+    means = []
+    mid_bin = []
+    for i in range(0, 5):
+        count = dummies[species][
+            (data > mini + i * step) & (data < mini + (i + 1) * step)
+        ]
+        means.append(np.mean(count))
+        mid_bin.append(mini + (2 * i + 1) / 2 * step)
+
+    fig.add_trace(go.Scatter(x=mid_bin, y=means, name=r"$\mu_i$"), secondary_y=True)
+
+    # Add figure title
+    fig.update_layout(title_text="{} {} Difference of Means".format(species, variable))
+
+    # Set x-axis title
+    fig.update_xaxes(title_text="{}".format(variable))
+
+    # Set y-axes titles
+    fig.update_yaxes(title_text="<b>Count</b>", secondary_y=False)
+    fig.update_yaxes(
+        title_text="<b>Likelihood of Being {}</b> ".format(species), secondary_y=True
     )
-    fig.add_trace(
-        go.Scatter(
-            x=[species, "not " + species],
-            y=[np.mean(iris[variable]), np.mean(iris[variable])],
-            name="Difference",
-        ),
-        secondary_y=True,
-    )
-    # Adding labels and text for clarity
-    fig.update_layout(title_text=species + " " + variable + " difference of means")
-    fig.update_yaxes(title_text="Count", secondary_y=False)
-    fig.update_yaxes(title_text="Mean Length", secondary_y=True)
-    fig.update_xaxes(title_text="Species")
+
     fig.write_html(
         species + " " + variable + " difference of means.html", include_plotlyjs="cdn"
     )
