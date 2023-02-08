@@ -35,7 +35,7 @@ def diff_of_mean(iris, species, variable):
     data = iris[variable]
     maxi = np.max(data)
     mini = np.min(data)
-    step = (maxi - mini) / 5
+    step = (maxi - mini) / 10
     fig.add_trace(
         go.Histogram(x=data, xbins=dict(start=mini, end=maxi, size=step), name="count")
     )
@@ -48,7 +48,7 @@ def diff_of_mean(iris, species, variable):
     # computing proportion in each bin
     means = []
     mid_bin = []
-    for i in range(0, 5):
+    for i in range(0, 10):
         count = dummies[species][
             (data > mini + i * step) & (data < mini + (i + 1) * step)
         ]
