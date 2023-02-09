@@ -5,7 +5,11 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import (
+    BaggingClassifier,
+    ExtraTreesClassifier,
+    RandomForestClassifier,
+)
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
@@ -133,6 +137,7 @@ def main():
     fig3.show()
     fig4.show()
     fig5.show()
+
     # Let's generate a feature from the where they started
     stand_scale = StandardScaler()
     stand_scale.fit(X_orig)
@@ -179,7 +184,7 @@ def main():
     prediction = random_forest.predict(X_test)
     probability = random_forest.predict_proba(X_test)
 
-    print_heading("Model Predictions")
+    print_heading("Random Forest Model Predictions")
     print(f"Classes: {random_forest.classes_}")
     print(f"Probability: {probability}")
     print(f"Predictions: {prediction}")
@@ -196,6 +201,64 @@ def main():
 
     probability = pipeline.predict_proba(X_test_orig)
     prediction = pipeline.predict(X_test_orig)
+    print(f"Probability: {probability}")
+    print(f"Predictions: {prediction}")
+
+    # Same Thing but with Different Classifiers
+
+    # Extra Trees
+    extra_tree = ExtraTreesClassifier(random_state=1234)
+    extra_tree.fit(X, y)
+
+    X_test = stand_scale.transform(X_test_orig)
+    prediction = extra_tree.predict(X_test)
+    probability = extra_tree.predict_proba(X_test)
+
+    print_heading("Extra Tree Model Predictions")
+    print(f"Classes: {extra_tree.classes_}")
+    print(f"Probability: {probability}")
+    print(f"Predictions: {prediction}")
+
+    # As pipeline
+    print_heading("Extra Tree Model via Pipeline Predictions")
+    extra_tree_pipeline = Pipeline(
+        [
+            ("StandardScaler", StandardScaler()),
+            ("ExtraTree", ExtraTreesClassifier(random_state=1234)),
+        ]
+    )
+    extra_tree_pipeline.fit(X_orig, y)
+
+    probability = extra_tree_pipeline.predict_proba(X_test_orig)
+    prediction = extra_tree_pipeline.predict(X_test_orig)
+    print(f"Probability: {probability}")
+    print(f"Predictions: {prediction}")
+
+    # Bagging Classifier
+    bag = BaggingClassifier(random_state=1234)
+    bag.fit(X, y)
+
+    X_test = stand_scale.transform(X_test_orig)
+    prediction = bag.predict(X_test)
+    probability = bag.predict_proba(X_test)
+
+    print_heading("Bagging Model Predictions")
+    print(f"Classes: {bag.classes_}")
+    print(f"Probability: {probability}")
+    print(f"Predictions: {prediction}")
+
+    # As pipeline
+    print_heading("Bagging Model via Pipeline Predictions")
+    bagpipe = Pipeline(  # Haha, Like the instrument
+        [
+            ("StandardScaler", StandardScaler()),
+            ("Bagging", BaggingClassifier(random_state=1234)),
+        ]
+    )
+    bagpipe.fit(X_orig, y)
+
+    probability = bagpipe.predict_proba(X_test_orig)
+    prediction = bagpipe.predict(X_test_orig)
     print(f"Probability: {probability}")
     print(f"Predictions: {prediction}")
 
