@@ -88,13 +88,26 @@ def main():
     pd.set_option("display.width", 1_000)
 
     # Load the famous iris data set
+    iris = pd.read_csv("data/iris.data", sep=",", header=None)
 
-    iris = px.data.iris()
+    # iris = px.data.iris()
     print(iris)
+    iris.columns = [
+        "sepal_length",
+        "sepal_width",
+        "petal_length",
+        "petal_width",
+        "species",
+    ]
     # A lot of this code is just the same as the Titanic code but replaced the preprocessing type and dataset.
     # Very similar to your slides
 
+    iris = iris.replace("Iris-setosa", "setosa")
+    iris = iris.replace("Iris-virginica", "virginica")
+    iris = iris.replace("Iris-versicolor", "versicolor")
+
     print_heading("Selecting Features")
+
     print(iris[["sepal_length", "sepal_width", "petal_length", "petal_width"]])
 
     # DataFrame to numpy values
