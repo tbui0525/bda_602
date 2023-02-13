@@ -3,7 +3,7 @@
 # Setup for developement:
 
 - Setup a python 3.x venv (usually in `.venv`)
-  - You can run `./scripts/create-venv.sh` to generate one
+  - You can run `S to generate one
 - `pip3 install --upgrade pip`
 - Install pip-tools `pip3 install pip-tools`
 - Update dev requirements: `pip-compile --output-file=requirements.dev.txt requirements.dev.in`
