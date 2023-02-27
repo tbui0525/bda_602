@@ -2,6 +2,7 @@ USE baseball;
 #HISTORIC_BA
 #I do not know why I kept getting a parse error
 #But it went away when I used INSERT INTO, so I'mma stick with that.
+DROP TABLE IF EXISTS historic_ba;
 
 CREATE TABLE historic_ba(
     batter INT,
@@ -24,6 +25,8 @@ GROUP BY bc.batter
 UPDATE historic_ba SET BA = 0 WHERE BA IS NULL;
 
 #ANNUAL_BA
+DROP TABLE IF EXISTS annual_ba;
+
 CREATE TABLE annual_ba(
     batter INT,
     batting_year YEAR,
