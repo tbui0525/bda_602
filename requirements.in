@@ -6,3 +6,4 @@ matplotlib
 seaborn
 statsmodels
 jinja2
+IPython

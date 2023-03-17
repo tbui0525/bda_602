@@ -1,4 +1,3 @@
-import os.path
 import sys
 import webbrowser
 
@@ -8,13 +7,16 @@ import plotly.express as px
 import plotly.graph_objects as go
 import statsmodels.api as sm
 from plotly.subplots import make_subplots
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 
 from dataset_loader import TestDatasets
 
 
 def rand_forest(data, response, features, data_types):
-    forest = RandomForestClassifier(n_estimators=100, random_state=1234)
+    if data_types[response] == "bool":
+        forest = RandomForestClassifier(n_estimators=100, random_state=1234)
+    else:
+        forest = RandomForestRegressor(n_estimators=100, random_state=1234)
     col = []
     subset_df = []
     for feature in features:
@@ -39,15 +41,12 @@ def diff_of_mean(data, feature, response, data_types):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     if data_types[feature] == "cat":
         bin_num = len(data[feature].unique())
-        fig.add_trace(go.Histogram(x=data[feature]))
+        fig.add_trace(go.Histogram(x=sorted(data[feature])))
+        means = data.groupby([feature])[response].mean()
         fig.add_trace(
-            go.Scatter(
-                x=data[feature],
-                y=np.ones(len(data[feature].unique())) * np.mean(data[response]),
-            ),
+            go.Scatter(x=means.index, y=np.ones(bin_num) * np.mean(data[response])),
             secondary_y=True,
         )
-        means = data.groupby([feature])[response].mean()
         fig.add_trace(go.Scatter(x=means.index, y=means), secondary_y=True)
         weight = []
         for cat in means.index:
@@ -98,8 +97,7 @@ def diff_of_mean(data, feature, response, data_types):
 
 
 def make_clickable(val):
-    f_url = os.path.basename(val)
-    return '<a href="{}">{}</a>'.format(val, f_url)
+    return '<a href="{}">PLOT</a>'.format(val)
 
 
 def algos(data, feature, response, data_types):
@@ -113,7 +111,6 @@ def algos(data, feature, response, data_types):
         p_value = "{:.6e}".format(linreg.pvalues[1])
         print("t_val: ", t_value)
         print("p_val: ", p_value)
-        # fig = px.scatter(x=x, y=y, trendline="ols")
 
     elif data_types[response] == "bool" and data_types[feature] == "cont":
         x = sm.add_constant(x)
@@ -150,7 +147,6 @@ def eda_plots(data, feature, response, data_types):
 
         else:
             fig = px.scatter(data, feature, response, trendline="ols")
-    # fig.show()
     fig.write_html(
         f"figures/{feature} vs {response} EDA plot.html", include_plotlyjs="cdn"
     )
@@ -208,8 +204,14 @@ def main():
 
     col = rand_forest(data, response, features, data_types)
     df["Random Forest"] = col
-    df.style.format({"EDA": make_clickable})
-    df.to_html(f"{ds_name} df.html")
+    # From StackOverflow hints
+    df["EDA"] = df["EDA"].apply(
+        lambda x: "<a href='{}'target='_blank'>{}</a>".format(x, "Plot")
+    )
+    df["MoD Plot"] = df["MoD Plot"].apply(
+        lambda x: "<a href='{}'target='_blank'>{}</a>".format(x, "Plot")
+    )
+    df.to_html(f"{ds_name} df.html", render_links=True, escape=False)
 
     webbrowser.open(f"{ds_name} df.html")
     return 0
