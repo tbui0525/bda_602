@@ -96,10 +96,6 @@ def diff_of_mean(data, feature, response, data_types):
     return diff_unweighted, diff_weighted
 
 
-def make_clickable(val):
-    return '<a href="{}">PLOT</a>'.format(val)
-
-
 def algos(data, feature, response, data_types):
     y = data[response]
     x = data[feature]
@@ -155,7 +151,7 @@ def eda_plots(data, feature, response, data_types):
 
 def main():
     td = TestDatasets()
-    ds_name = "titanic"
+    ds_name = "mpg"
     data, features, response = td.get_test_data_set(data_set_name=ds_name)
     data = data.dropna()
     data_types = {}
