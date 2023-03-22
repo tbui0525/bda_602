@@ -7,3 +7,5 @@ seaborn
 statsmodels
 jinja2
 IPython
+pyspark
+mariadb
