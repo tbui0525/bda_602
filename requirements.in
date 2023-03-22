@@ -3,9 +3,12 @@ pandas
 plotly
 scikit-learn
 matplotlib
+<<<<<<< HEAD
 seaborn
 statsmodels
 jinja2
 IPython
+=======
+>>>>>>> c77b215f33d6fd1332781746a2b37f0b87eca85d
 pyspark
 mariadb
