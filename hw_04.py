@@ -39,7 +39,7 @@ def rand_forest(data, response, features, data_types):
 
 def diff_of_mean(data, feature, response, data_types):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
-    if data_types[feature] == "cat":
+    if data_types[feature] == "cat" or (len(data[feature].unique()) < 10):
         bin_num = len(data[feature].unique())
         fig.add_trace(go.Histogram(x=sorted(data[feature])))
         means = data.groupby([feature])[response].mean()
@@ -51,7 +51,7 @@ def diff_of_mean(data, feature, response, data_types):
         weight = []
         for cat in means.index:
             weight.append(sum(data[feature] == cat) / len(data))
-        diff_unweighted = sum((means - data[response].mean()) ** 2)
+        diff_unweighted = sum((means - data[response].mean()) ** 2) / bin_num
         diff_weighted = sum((means - data[response].mean()) ** 2 * weight)
     else:
         maxi = data[feature].max()
@@ -89,7 +89,7 @@ def diff_of_mean(data, feature, response, data_types):
         means = np.array(means)
         weight = np.array(count) / len(data)
         diff_unweighted = np.nansum((means - np.mean(data[response])) ** 2) / 10
-        diff_weighted = np.nansum((means - np.mean(data[response])) ** 2 * weight) / 10
+        diff_weighted = np.nansum((means - np.mean(data[response])) ** 2 * weight)
     fig.write_html(
         f"figures/{feature} vs {response} MoD plot.html", include_plotlyjs="cdn"
     )
@@ -160,7 +160,7 @@ def main():
     else:
         data_types[response] = "cont"
     for feature in features:
-        if isinstance(data[feature][0], str) or len(data[feature].unique()) == 2:
+        if isinstance(data[feature][0], str):
             data_types[feature] = "cat"
         else:
             data_types[feature] = "cont"
