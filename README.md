@@ -1,6 +1,6 @@
 # PythonProject
 
-# Setugit p for developement:
+# Setup git for developement:
 
 - Setup a python 3.x venv (usually in `.venv`)
   - You can run `S to generate one
