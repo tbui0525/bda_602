@@ -4,42 +4,94 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
+asttokens==2.2.1
+    # via stack-data
+backcall==0.2.0
+    # via ipython
+
 certifi==2022.12.7
     # via requests
 charset-normalizer==3.0.1
     # via requests
+
 contourpy==1.0.7
     # via matplotlib
 cycler==0.11.0
     # via matplotlib
+decorator==5.1.1
+    # via ipython
+executing==1.2.0
+    # via stack-data
 fonttools==4.38.0
     # via matplotlib
+
+ipython==8.11.0
+    # via -r requirements.in
+jedi==0.18.2
+    # via ipython
+jinja2==3.1.2
+    # via -r requirements.in
+
 idna==3.4
     # via requests
+
 joblib==1.2.0
     # via scikit-learn
 kiwisolver==1.4.4
     # via matplotlib
+markupsafe==2.1.2
+    # via jinja2
 matplotlib==3.7.0
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   seaborn
+matplotlib-inline==0.1.6
+    # via ipython
 numpy==1.24.1
     # via
     #   -r requirements.in
     #   contourpy
     #   matplotlib
     #   pandas
+    #   patsy
     #   scikit-learn
     #   scipy
+    #   seaborn
+    #   statsmodels
 packaging==23.0
-    # via matplotlib
+    # via
+    #   matplotlib
+    #   statsmodels
 pandas==1.5.3
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   seaborn
+    #   statsmodels
+parso==0.8.3
+    # via jedi
+patsy==0.5.3
+    # via statsmodels
+pexpect==4.8.0
+    # via ipython
+pickleshare==0.7.5
+    # via ipython
 pillow==9.4.0
     # via matplotlib
 plotly==5.13.0
     # via -r requirements.in
+
+prompt-toolkit==3.0.38
+    # via ipython
+ptyprocess==0.7.0
+    # via pexpect
+pure-eval==0.2.2
+    # via stack-data
+pygments==2.14.0
+    # via ipython
+
 py4j==0.10.9.5
     # via pyspark
+
 pyparsing==3.0.9
     # via matplotlib
 pyspark==3.3.2
@@ -55,12 +107,31 @@ requests==2.28.2
 scikit-learn==1.2.1
     # via -r requirements.in
 scipy==1.10.1
-    # via scikit-learn
+    # via
+    #   scikit-learn
+    #   statsmodels
+seaborn==0.12.2
+    # via -r requirements.in
 six==1.16.0
-    # via python-dateutil
+    # via
+    #   patsy
+    #   python-dateutil
+stack-data==0.6.2
+    # via ipython
+statsmodels==0.13.5
+    # via -r requirements.in
 tenacity==8.1.0
     # via plotly
 threadpoolctl==3.1.0
     # via scikit-learn
+
+traitlets==5.9.0
+    # via
+    #   ipython
+    #   matplotlib-inline
+wcwidth==0.2.6
+    # via prompt-toolkit
+
 urllib3==1.26.14
     # via requests
+

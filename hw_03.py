@@ -15,6 +15,7 @@ def main():
     url = "jdbc:mysql://localhost:3306/baseball?permitMysqlScheme"
     password = input("Password: ")
     spark = SparkSession.builder.getOrCreate()
+
     bc = (
         spark.read.format("jdbc")
         .option("url", url)
@@ -41,7 +42,7 @@ def main():
     )
     each_day = each_day.withColumn("local_date", each_day.local_date.cast("timestamp"))
     ba_trans = BattingAverageTransformer(
-        inputCols=["batter", "local_date", "Hit", "atBat"], outputCol="BA"
+        inputCols=["team_id", "local_date", "Hits", "atBats"], outputCol="BA"
     )
     pipeline = Pipeline(stages=[ba_trans])
     model = pipeline.fit(each_day)
@@ -49,7 +50,7 @@ def main():
     ba.show()
 
     spark.stop()
-    return
+    return 0
 
 
 if __name__ == "__main__":

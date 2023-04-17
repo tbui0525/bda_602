@@ -3,5 +3,9 @@ pandas
 plotly
 scikit-learn
 matplotlib
+seaborn
+statsmodels
+jinja2
+IPython
 pyspark
 mariadb
