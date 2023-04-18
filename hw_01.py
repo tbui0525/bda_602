@@ -283,7 +283,7 @@ def main():
         for variable in iris.columns[:-2]:
             # Ignoring last 2 columns b/c that is species and speciesid
             diff_of_mean(iris, species, variable)
-    return
+    return 0
 
 
 if __name__ == "__main__":

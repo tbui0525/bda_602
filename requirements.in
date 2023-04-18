@@ -7,5 +7,12 @@ seaborn
 statsmodels
 jinja2
 IPython
+
+scipy
+pyspark
+nbformat >=4.2.0
+pretty_html_table
+
 pyspark
 mariadb
+
