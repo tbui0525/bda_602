@@ -1,134 +1,68 @@
 import sys
 
-from pyspark.ml import Pipeline
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report, roc_auc_score
 
-import transformer as t
+from hw_05_data import data_loader
+from midterm import midterm_stuff
 
-# import pandas as pd
 
-
-# spark.apache.org/docs/latest/sql-data-sources-jdbc.html helped me load in data in spark.
-# A lot of the other stuff was from the TA helping me out
 def main():
-    driver = "org.mariadb.jdbc.Driver"
-    url = "jdbc:mysql://localhost:3306/baseball?permitMysqlScheme"
     password = input("Password: ")
-    spark = SparkSession.builder.getOrCreate()
-    tba = (
-        spark.read.format("jdbc")
-        .option("url", url)
-        .option("dbtable", "baseball.team_ba")
-        .option("user", "root")
-        .option("password", password)
-        .option("driver", driver)
-        .load()
-    )
+    data, features, response = data_loader(password)
+    data = data.dropna()
+    data = data.reset_index()
+    # dropping first few games since they will have the most skewed data for calculating stats such as BA
+    # cutoff = int(len(data) * 0.05) Decided not to do it because new teams can join and whatnot so not based on date
+    # data = data[cutoff:].reset_index()
+    # print(data)
+    # Midterm Feature Analysis
+    midterm_stuff("Baseball", data, features, response)
 
-    tba = tba.withColumn("local_date", tba.local_date.cast("timestamp"))
-    trans_bat = t.BattingAverageTransformer(
-        inputCols=["team_id", "local_date", "Hits", "atBats"], outputCol="BA"
-    )
-    trans_oba = t.BattingAverageTransformer(
-        inputCols=["team_id", "local_date", "opp_hits", "opp_AB"], outputCol="AVG_OBA"
-    )
-    trans_XBH = t.AvgTransformer(
-        inputCols=["team_id", "local_date", "XBH"], outputCol="AVG_XBH"
-    )
-    trans_score_diff = t.AvgTransformer(
-        inputCols=["team_id", "local_date", "Score_Diff"], outputCol="AVG_Score_Diff"
-    )
-    trans_innpitch = t.AvgTransformer(
-        inputCols=["team_id", "local_date", "innings_pitched"], outputCol="AVG_INN_P"
-    )
-    trans_pt = t.AvgTransformer(
-        inputCols=["team_id", "local_date", "thrown"], outputCol="AVG_PT"
-    )
-    cera = t.CERA(
-        inputCols=[
-            "opp_hits",
-            "walks",
-            "HBP",
-            "opp_HR",
-            "intent_walk",
-            "plate_appearance",
-            "innings_pitched",
-            "team_id",
-            "local_date",
-        ],
-        outputCol="Team_CERA",
-    )
-    pythag = t.Pythag(
-        inputCols=["team_id", "local_date", "runs", "opp_runs"], outputCol="Pythag"
-    )
-    iso = t.ISO(
-        inputCols=["team_id", "local_date", "Doubles", "Triples", "HR", "atBats"],
-        outputCol="AVG_ISO",
-    )
-    ops = t.OPS(
-        inputCols=[
-            "team_id",
-            "local_date",
-            "Hits",
-            "walks",
-            "HBP",
-            "atBats",
-            "Sac_Fly",
-        ],
-        outputCol="AVG_OPS",
-    )
-    pipeline = Pipeline(
-        stages=[
-            trans_bat,
-            trans_oba,
-            trans_XBH,
-            trans_score_diff,
-            trans_innpitch,
-            trans_pt,
-            cera,
-            pythag,
-            iso,
-            ops,
-        ]
-    )
-    model = pipeline.fit(tba)
+    # My features seem good based on p-value and t-score. Almost too good.
+    # All of them were below that 5% threshold with my WORST feature here being about 4.99%.
+    # I will just fit a multivariate logistic model for now, but looking at correlations and MoR plots, I
+    # will probably pick Pythag > Avg_Score_Diff, ISO > XBH, and a slight edge to CERA compared to OBA but both those
+    # graphs seem extremely skewed
 
-    # print(type(team_stats.toPandas()))
-
-    ps = (
-        spark.read.format("jdbc")
-        .option("url", url)
-        .option("dbtable", "baseball.pitch_stats")
-        .option("user", "root")
-        .option("password", password)
-        .option("driver", driver)
-        .load()
-    )
-    team_stats_wp = tba.join(ps, ["team_id", "game_id"], "inner")
-    # team_stats_wp.show()
-
-    team_stats = model.transform(team_stats_wp)
-
-    df = team_stats.select(
-        col("team_id"),
-        col("game_id"),
-        col("local_date"),
-        col("home_team"),  # Feature 0
-        col("BA"),  # Feature 1 Batting Average
-        col("AVG_OBA"),  # Feature 2 Oppnent Batting Avg
-        col("AVG_XBH"),  # Feature 3 eXtra Base Hits
-        col("Avg_Score_Diff"),  # Feature 4
-        col("AVG_INN_P"),  # Feature 5 Innings Pitched
-        col("AVG_PT"),  # Feature 6 Pitches Thrown
-        col("Team_CERA"),  # Feature 7 CERA score for team starting pitcher
-        col("Pythag"),  # Feature 8 The pythagoean win percentage
-        col("AVG_ISO"),  # Feature 9, Isolated power
-        col("AVG_OPS"),  # Feature 10, on base plus sluggings
-        col("Home_Team_Win"),  # Response
-    )
-
-    df.show()
+    # For train-test split, we cannot do a random split because the data is time-based.
+    # The data is already sorted by local_date, so we can split it 80-20 directly
+    # features.remove("diff_Score_Diff")
+    # features.remove("diff_XBH")
+    # features.remove("diff_OBA")
+    split_point = int(len(data) * 0.8)  # creates split point for train-test
+    train_data = data[:split_point]  # everything up to split point
+    y_train = train_data["Home_Team_Win"]
+    x_train = train_data[features]
+    test_data = data[split_point:]  # everything from split point
+    y_test = test_data["Home_Team_Win"]
+    x_test = test_data[features]
+    logreg_model = LogisticRegression(random_state=1234).fit(x_train, y_train)
+    y_log_pred = logreg_model.predict(x_test)
+    log_roc_auc = roc_auc_score(y_test, y_log_pred)
+    log_cr = classification_report(y_test, y_log_pred)
+    # Using AUC to evaluate model instead of just accuracy or precision.
+    print("Logistic ROC AUC Score: ", log_roc_auc)
+    print("Logistic Class Report")
+    print(log_cr)
+    forest = RandomForestClassifier(n_estimators=100, random_state=1234)
+    forest.fit(x_train, y_train)
+    y_rf_pred = forest.predict(x_test)
+    rf_roc_auc = roc_auc_score(y_test, y_rf_pred)
+    rf_cr = classification_report(y_test, y_rf_pred)
+    print("Random Forest ROC AUC Score: ", rf_roc_auc)
+    print("Random Forest Class Report")
+    print(rf_cr)
+    """
+    I'll be editing this for the final to make the model better. I am assuming high levels of overfitting
+    because of the high level of correlations between variables as can be seen in the Feature Analysis.html.
+    Given the time constraint. I'll settle for this for the hw. Speed > Best Model to get funding right? ;P
+    I'll also set an outlier check so if it's below the bottom 10%, move it up to the 10% mark and if
+    above 90%, move it down to 90% mark for all features. Or 5% and 95%. Will have to test to find out.
+    Clipping the data that way may result in different features being more important as well.
+    Currently, the better of the two models is the logistic regression which is slightly better than a coin flip.
+    """
     return 0
 
 

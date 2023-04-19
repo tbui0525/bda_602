@@ -16,7 +16,7 @@ def w(input_cols):
         Window()
         .partitionBy(input_cols[0])
         .orderBy(col(input_cols[1]).cast("long"))
-        .rangeBetween(-days(101), -1)
+        .rangeBetween(-days(366), -1)
     )
 
 
@@ -53,7 +53,7 @@ class BattingAverageTransformer(
             output_col,
             F.sum(col(input_cols[-2])).over(wdw) / F.sum(col(input_cols[-1])).over(wdw),
         )
-        dataset = dataset.fillna({output_col: "0"})
+
         return dataset
 
 
@@ -86,7 +86,7 @@ class AvgTransformer(
             output_col,
             F.avg(input_cols[-1]).over(wdw),
         )
-        dataset = dataset.fillna({output_col: "0"})
+
         return dataset
 
 
@@ -117,7 +117,7 @@ class CERA(
             Window()
             .partitionBy(input_cols[-2])
             .orderBy(col(input_cols[-1]).cast("long"))
-            .rangeBetween(-days(101), -1)
+            .rangeBetween(-days(366), -1)
         )
         # Generate a list of columns to append
         dataset = dataset.withColumn(
@@ -152,7 +152,7 @@ class CERA(
             )
             - 0.56,
         )
-        dataset = dataset.fillna({output_col: "0"})
+
         return dataset
 
 
@@ -189,7 +189,7 @@ class Pythag(
                 + F.sum(col(input_cols[3])).over(wdw) ** 2
             ),
         )
-        dataset = dataset.fillna({output_col: "0"})
+
         return dataset
 
 
@@ -230,7 +230,7 @@ class ISO(
             )  # home runs
             / F.sum(col(input_cols[-1])).over(wdw),  # atBats
         )
-        dataset = dataset.fillna({output_col: "0"})
+
         return dataset
 
 
@@ -276,5 +276,5 @@ class OPS(
                 + F.sum(col(input_cols[4])).over(wdw)  # Sac Fly  # HBP
             ),  # atBats
         )
-        dataset = dataset.fillna({output_col: "0"})
+
         return dataset
