@@ -106,3 +106,8 @@ WHERE DATE(game.local_date) > DATE(each_day_ba.local_date)
 GROUP BY batter_counts.batter, batter_counts.game_id
 ;
 UPDATE ROLLING_BA SET BA = 0 WHERE BA IS NULL;
+
+SELECT *
+FROM ROLLING_BA
+LIMIT 0, 20
+;

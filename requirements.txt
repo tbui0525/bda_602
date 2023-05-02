@@ -6,10 +6,21 @@
 #
 asttokens==2.2.1
     # via stack-data
+
+backcall==0.2.0
+    # via ipython
+
+certifi==2022.12.7
+    # via requests
+charset-normalizer==3.0.1
+    # via requests
+
+
 attrs==22.2.0
     # via jsonschema
 backcall==0.2.0
     # via ipython
+
 contourpy==1.0.7
     # via matplotlib
 cycler==0.11.0
@@ -18,16 +29,27 @@ decorator==5.1.1
     # via ipython
 executing==1.2.0
     # via stack-data
+
+fonttools==4.38.0
+    # via matplotlib
+
+
 fastjsonschema==2.16.3
     # via nbformat
 fonttools==4.38.0
     # via matplotlib
+
 ipython==8.11.0
     # via -r requirements.in
 jedi==0.18.2
     # via ipython
 jinja2==3.1.2
     # via -r requirements.in
+
+
+idna==3.4
+    # via requests
+
 joblib==1.2.0
     # via scikit-learn
 jsonschema==4.17.3
@@ -44,8 +66,10 @@ matplotlib==3.7.0
     #   seaborn
 matplotlib-inline==0.1.6
     # via ipython
+
 nbformat==5.8.0
     # via -r requirements.in
+
 numpy==1.24.1
     # via
     #   -r requirements.in
@@ -64,7 +88,9 @@ packaging==23.0
 pandas==1.5.3
     # via
     #   -r requirements.in
+
     #   pretty-html-table
+
     #   seaborn
     #   statsmodels
 parso==0.8.3
@@ -81,18 +107,24 @@ platformdirs==3.1.1
     # via jupyter-core
 plotly==5.13.0
     # via -r requirements.in
+
 pretty-html-table==0.9.16
     # via -r requirements.in
+
 prompt-toolkit==3.0.38
     # via ipython
 ptyprocess==0.7.0
     # via pexpect
 pure-eval==0.2.2
     # via stack-data
-py4j==0.10.9.5
-    # via pyspark
+
 pygments==2.14.0
     # via ipython
+
+py4j==0.10.9.5
+    # via pyspark
+
+
 pyparsing==3.0.9
     # via matplotlib
 pyrsistent==0.19.3
@@ -109,7 +141,7 @@ scikit-learn==1.2.1
     # via -r requirements.in
 scipy==1.10.1
     # via
-    #   -r requirements.in
+
     #   scikit-learn
     #   statsmodels
 seaborn==0.12.2
@@ -126,11 +158,14 @@ tenacity==8.1.0
     # via plotly
 threadpoolctl==3.1.0
     # via scikit-learn
+
 traitlets==5.9.0
     # via
     #   ipython
-    #   jupyter-core
     #   matplotlib-inline
-    #   nbformat
 wcwidth==0.2.6
     # via prompt-toolkit
+
+urllib3==1.26.14
+    # via requests
+
