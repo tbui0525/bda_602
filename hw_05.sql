@@ -122,31 +122,31 @@ CREATE TABLE IF NOT EXISTS roll_avg(
     ts1.game_id AS game_id,
     ts1.home_team as home_team,
     ts1.local_date AS local_date,
-    SUM(ts1.Hits)/NULLIF(SUM(ts1.atBats),0) AS BA,# 1
-    SUM(ts1.opp_hits)/NULLIF(SUM(ts1.opp_AB),0) AS OBA,# 2
-    SUM(ts1.XBH)/COUNT(ts1.game_id) AS XBH, # No weights here  3
-    SUM(ts1.Avg_Score_Diff)/COUNT(ts1.game_id) AS Avg_Score_Diff, # 4
-    SUM(ts1.innings_pitched)/COUNT(ts1.game_id) AS innings_pitched, # 5
-    SUM(ts1.thrown)/COUNT(ts1.game_id) AS thrown, # 6
-    SUM(ts1.thrown)/NULLIF(SUM(ts1.innings_pitched),0) as pitch_per_inning,# 7
-    9*(SUM(ts1.opp_hits)+SUM(ts1.walks)+SUM(ts1.HBP))/
-    NULLIF((SUM(ts1.opp_AB)+SUM(ts1.innings_pitched)),0)*
-    (0.89*(1.255*(SUM(ts1.opp_hits)-SUM(ts1.opp_HR))+4*SUM(ts1.opp_HR)
-        )+0.56*(SUM(ts1.walks)+SUM(ts1.HBP)-SUM(ts1.intent_walk)))
+    SUM(ts2.Hits)/NULLIF(SUM(ts2.atBats),0) AS BA,# 1
+    SUM(ts2.opp_hits)/NULLIF(SUM(ts2.opp_AB),0) AS OBA,# 2
+    SUM(ts2.XBH)/COUNT(ts2.game_id) AS XBH, # No weights here  3
+    SUM(ts2.Avg_Score_Diff)/COUNT(ts2.game_id) AS Avg_Score_Diff, # 4
+    SUM(ts2.innings_pitched)/COUNT(ts2.game_id) AS innings_pitched, # 5
+    SUM(ts2.thrown)/COUNT(ts2.game_id) AS thrown, # 6
+    SUM(ts2.thrown)/NULLIF(SUM(ts2.innings_pitched),0) as pitch_per_inning,# 7
+    9*(SUM(ts2.opp_hits)+SUM(ts2.walks)+SUM(ts2.HBP))/
+    NULLIF((SUM(ts2.opp_AB)+SUM(ts2.innings_pitched)),0)*
+    (0.89*(1.255*(SUM(ts2.opp_hits)-SUM(ts2.opp_HR))+4*SUM(ts2.opp_HR)
+        )+0.56*(SUM(ts2.walks)+SUM(ts2.HBP)-SUM(ts2.intent_walk)))
     *0.75 AS CERA, # Not real CERA b/c did not account ERC 8
-    0.89*(1.255*(SUM(ts1.opp_hits)-SUM(ts1.opp_HR))+4*SUM(ts1.opp_HR)
-        )+0.56*(SUM(ts1.walks)+SUM(ts1.HBP)-SUM(ts1.intent_walk))/
-          NULLIF(COUNT(ts1.game_id),0) AS PTB, # 9
-    (SUM(ts1.walks)+SUM(ts1.opp_hits))/
-    NULLIF(SUM(ts1.innings_pitched),0) AS WHIP, # 10
-    (SUM(ts1.runs)*SUM(ts1.runs))/
-    NULLIF((SUM(ts1.runs)*SUM(ts1.runs) +
-            SUM(ts1.opp_runs)*SUM(ts1.opp_runs)),0) AS Pythag, # 11
-    (SUM(ts1.Doubles) + 2*SUM(ts1.Triples) +3*SUM(ts1.HR))/
-          SUM(ts1.atBats) AS ISO, # 12
-    (ts1.Hits+ts1.walks+ts1.HBP)/
-    NULLIF(ts1.atBats+ts1.walks+ts1.Sac_Fly+ts1.HBP,0) AS OBP, # 13
-    ts1.Home_Team_Win AS Home_Team_Win
+    0.89*(1.255*(SUM(ts2.opp_hits)-SUM(ts2.opp_HR))+4*SUM(ts2.opp_HR)
+        )+0.56*(SUM(ts2.walks)+SUM(ts2.HBP)-SUM(ts2.intent_walk))/
+          NULLIF(COUNT(ts2.game_id),0) AS PTB, # 9
+    (SUM(ts2.walks)+SUM(ts2.opp_hits))/
+    NULLIF(SUM(ts2.innings_pitched),0) AS WHIP, # 10
+    (SUM(ts2.runs)*SUM(ts2.runs))/
+    NULLIF((SUM(ts2.runs)*SUM(ts2.runs) +
+            SUM(ts2.opp_runs)*SUM(ts2.opp_runs)),0) AS Pythag, # 11
+    (SUM(ts2.Doubles) + 2*SUM(ts2.Triples) +3*SUM(ts2.HR))/
+          SUM(ts2.atBats) AS ISO, # 12
+    (ts2.Hits+ts2.walks+ts2.HBP)/
+    NULLIF(ts2.atBats+ts2.walks+ts2.Sac_Fly+ts2.HBP,0) AS OBP, # 13
+    ts2.Home_Team_Win AS Home_Team_Win
     FROM team_stats ts1
     JOIN team_stats ts2
     ON ts1.team_id = ts2.team_id
@@ -200,13 +200,13 @@ CREATE TABLE IF NOT EXISTS final_table(
     hts.BA - ats.opp_BA AS diff_BA, #1
     hts.OBA - ats.opp_OBA AS diff_OBA, #2
     hts.XBH - ats.opp_XBH AS diff_XBH, #3
-    #hts.Avg_Score_Diff - ats.opp_Score_Diff AS diff_Score_Diff, # 4
+    hts.Avg_Score_Diff - ats.opp_Score_Diff AS diff_Score_Diff, # 4
     hts.innings_pitched - ats.opp_innings_pitched AS diff_inn_p, # 5
     hts.thrown - ats.opp_thrown AS diff_thrown, # 6
     hts.pitch_per_inning- ats.opp_pitch_per_inning AS diff_ppi, # 7
     hts.CERA - ats.opp_CERA AS diff_CERA, # 8
     hts.PTB - ats.opp_PTB AS diff_PTB, # 9
-    #hts.Pythag - ats.opp_Pythag AS diff_Pythag,# 10
+    hts.Pythag - ats.opp_Pythag AS diff_Pythag,# 10
     hts.ISO - ats.opp_ISO AS diff_ISO, # 11
     hts.WHIP - ats.opp_WHIP as diff_WHIP, # 12
     hts.OBP - ats.opp_OBP as diff_OBP, # 13

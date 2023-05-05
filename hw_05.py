@@ -12,7 +12,7 @@ from midterm import midterm_stuff
 def main():
     user = "root"
     password = "jIg688xaj?"  # pragma: allowlist secret
-    #host = "localhost"
+    #git host = "localhost"
     host = "mariadb_container"
     db = "baseball"
     connect_string = f"mariadb+mariadbconnector://{user}:{password}@{host}/{db}"  # pragma: allowlist secret
@@ -35,7 +35,7 @@ def main():
     # print(data)
     # Midterm Feature Analysis
 
-    midterm_stuff("Baseball", data, features, response)
+    #midterm_stuff("Baseball", data, features, response)
 
     # My features seem good based on p-value and t-score. Almost too good.
     # All of them were below that 5% threshold with my WORST feature here being about 4.99%.
@@ -55,6 +55,7 @@ def main():
     y_test = test_data["Home_Team_Win"]
     x_test = test_data[features]
     logreg_model = LogisticRegression(random_state=69).fit(x_train, y_train)
+    #print(logreg_model.summary())
     y_log_pred = logreg_model.predict(x_test)
     log_roc_auc = roc_auc_score(y_test, y_log_pred)
     log_cr = classification_report(y_test, y_log_pred)
@@ -79,6 +80,7 @@ def main():
     Clipping the data that way may result in different features being more important as well.
     Currently, the better of the two models is the logistic regression which is slightly better than a coin flip.
     """
+
     return 0
 
 
