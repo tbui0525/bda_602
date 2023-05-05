@@ -106,6 +106,8 @@ def algos(data, feature, response, data_types):
 
     elif data_types[response] == "bool" and data_types[feature] == "cont":
         x = sm.add_constant(x)
+        print(feature)
+        print(response)
         linreg = sm.Logit(y, x).fit()
 
         t_value = round(linreg.tvalues[1], 6)
