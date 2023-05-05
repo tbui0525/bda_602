@@ -1,8 +1,8 @@
 version: "3.3"
 # Altered what I found on beekeeperstudio.io/blog/how-to-use-mariadb-with-docker
 services:
-  mariadb_container:
-    container_name: mariadb_container
+  mariadb:
+    container_name: mariadb
     build:
       context: .
       #dockerfile: Dockerfile
@@ -25,4 +25,4 @@ services:
     volumes:
       - ./hw_05.py:/docker-entrypoint-initdb.d/hw_05.py
     depends_on:
-      - mariadb_container
+      - mariadb

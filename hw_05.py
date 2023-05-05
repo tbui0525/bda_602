@@ -13,7 +13,7 @@ def main():
     user = "root"
     password = "jIg688xaj?"  # pragma: allowlist secret
     #git host = "localhost"
-    host = "mariadb_container"
+    host = "mariadb"
     db = "baseball"
     connect_string = f"mariadb+mariadbconnector://{user}:{password}@{host}/{db}"  # pragma: allowlist secret
     sql_engine = sqlalchemy.create_engine(connect_string)
@@ -29,13 +29,17 @@ def main():
     data = data.reset_index()
     print(features)
     print(data[response])
+    lower_percentile = 0.05,
+    higher_percentile = 0.95
+
+
     # dropping first few games since they will have the most skewed data for calculating stats such as BA
     # cutoff = int(len(data) * 0.05) Decided not to do it because new teams can join and whatnot so not based on date
     # data = data[cutoff:].reset_index()
     # print(data)
     # Midterm Feature Analysis
 
-    #midterm_stuff("Baseball", data, features, response)
+    midterm_stuff("Baseball", data, features, response)
 
     # My features seem good based on p-value and t-score. Almost too good.
     # All of them were below that 5% threshold with my WORST feature here being about 4.99%.
