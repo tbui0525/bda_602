@@ -43,8 +43,8 @@ def model(data, features):
 def main():
     user = "root"
     password = "jIg688xaj?"  # pragma: allowlist secret
-    # host = "localhost"
-    host = "mariadb_container"
+    host = "localhost"
+    #host = "mariadb_container"
     db = "baseball"
     connect_string = f"mariadb+mariadbconnector://{user}:{password}@{host}/{db}"  # pragma: allowlist secret
     sql_engine = sqlalchemy.create_engine(connect_string)
@@ -54,13 +54,16 @@ def main():
     """
     data = pd.DataFrame(sql_engine.connect().execute(text(query)))
     response = "Home_Team_Win"
-    features = list(data.columns[3:-1])
+    features = list(data.columns[4:-1])
 
     data = data.dropna()
     data = data.reset_index()
 
     print(features)
     print(data[response])
+    for feature in features:
+        data[feature] = data[feature].astype(float)
+    data[response] = data[response].astype(bool)
 
     for feature in features:
         low, high = data[feature].quantile([0.05, 0.95])
@@ -72,7 +75,7 @@ def main():
     # print(data)
     # Midterm Feature Analysis
 
-    # midterm_stuff("Baseball", data, features, response)
+    midterm_stuff("Baseball", data, features, response)
 
     # My features seem good based on p-value and t-score. Almost too good.
     # All of them were below that 5% threshold with my WORST feature here being about 4.99%.
@@ -101,7 +104,7 @@ def main():
     model(new_data, reduced_features)
     """
     Logistic Model went from 51  to 51.3. Random forest went up from 49.7 to 51.
-    So small improvement, but now we drop highly correlated features. Which from Feature Analysis.html 
+    So small improvement, but now we drop highly correlated features. Which from Feature Analysis.html
     shows that XBH and ISO have a correlation of above 90%. Pythag and Score DIff are already dropped for this.
     Comparing their Mean of Response plots, ISO seems to be more helpful (probably due to the weights in
     calculations). ISO is doubles + 2*triples + 3*hr whereas XBH is just doubles+triples+HR.
@@ -111,11 +114,11 @@ def main():
     reducer_features = newer_data.columns[4:-1]
     model(newer_data, reducer_features)
     """
-        51.5 but now it looks like ISO is bad, so maybe drop that too. Or do the hinge point. 
+        51.5 but now it looks like ISO is bad, so maybe drop that too. Or do the hinge point.
         Test hinge point first to see because it looks like there's a clear hinge point for that
         Mean of Response plot. Slope increases to the right
     """
-    newer_data["ISO_hinge"] = [max(0, i + 0.011) for i in newer_data["diff_ISO"].tolist()]
+    # newer_data["ISO_hinge"] = [max(0, i + 0.011) for i in newer_data["diff_ISO"].tolist()]
     # reducer_features = reducer_features[4:]
     # reducer_features = reducer_features.tolist().drop()
     # model(newer_data, reducer_features)
