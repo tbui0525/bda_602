@@ -3,7 +3,7 @@
 
 USE baseball;
 # COLLECTING DATA
-
+DROP TEMPORARY TABLE IF EXISTS bat_stats;
 CREATE TEMPORARY TABLE IF NOT EXISTS bat_stats(
 
 SELECT
@@ -16,6 +16,7 @@ SELECT
     tbc.Triple AS Triples,
     tbc.Home_Run AS HR,
     tbc.Sac_Fly AS Sac_Fly,
+    tbc.Strikeout AS team_K,
     tbc.atBat AS atBats,
     tbc.`Double` + tbc.Triple + tbc.Home_Run AS XBH,
     tbc.finalScore AS runs,
@@ -33,15 +34,16 @@ FROM team_batting_counts tbc
 GROUP BY tbc.team_id, game.local_date
 )
 ;
-CREATE INDEX idx
+CREATE INDEX IF NOT EXISTS idx
 ON bat_stats (game_id)
 ;
-CREATE INDEX idx2
+CREATE INDEX IF NOT EXISTS idx2
 ON bat_stats (team_id)
 ;
 # Innings Pitched by Starting Pitcher Only
 
 
+DROP TEMPORARY TABLE IF EXISTS pitch_stats;
 
 CREATE TEMPORARY TABLE IF NOT EXISTS pitch_stats(
     SELECT
@@ -54,6 +56,7 @@ CREATE TEMPORARY TABLE IF NOT EXISTS pitch_stats(
     pc.Walk AS walks,
     pc.Hit_By_Pitch AS HBP,
     pc.Intent_Walk AS intent_walk,
+    pc.Strikeout AS K,
     pc.plateApperance AS plate_appearance,
     pc.Home_Run AS opp_HR,
     pc.Hit / NULLIF(pc.atBat, 0) AS OBA,
@@ -70,7 +73,7 @@ ON pitch_stats (game_id)
 CREATE INDEX idx2
 ON pitch_stats (team_id)
 ;
-
+DROP TEMPORARY TABLE IF EXISTS team_stats;
 CREATE TEMPORARY TABLE IF NOT EXISTS team_stats(
     SELECT
         ps.game_id as game_id,
@@ -92,6 +95,8 @@ CREATE TEMPORARY TABLE IF NOT EXISTS team_stats(
         bs.Doubles AS Doubles,
         bs.Triples as Triples,
         bs.HR AS HR,
+        ps.K as K,
+        bs.team_K as team_K,
         bs.Sac_Fly as Sac_Fly,
         bs.atBats as atBats,
         bs.XBH as XBH,
@@ -146,6 +151,11 @@ CREATE TABLE IF NOT EXISTS roll_avg(
           SUM(ts2.atBats) AS ISO, # 12
     (ts2.Hits+ts2.walks+ts2.HBP)/
     NULLIF(ts2.atBats+ts2.walks+ts2.Sac_Fly+ts2.HBP,0) AS OBP, # 13
+    (SUM(ts2.Hits)-SUM(ts2.HR)) /
+    NULLIF(SUM(ts2.atBats)-SUM(ts2.team_K)-SUM(ts2.HR)+SUM(ts2.Sac_Fly),0)
+        AS BABIP, # 14
+    3+ (13*SUM(ts2.opp_HR)+3*(SUM(ts2.walks)+SUM(ts2.HBP))-2*ts2.K)
+        / NULLIF(ts2.innings_pitched,0) AS DICE,
     ts2.Home_Team_Win AS Home_Team_Win
     FROM team_stats ts1
     JOIN team_stats ts2
@@ -182,7 +192,9 @@ CREATE TEMPORARY TABLE IF NOT EXISTS away_team_stats(
     ra.WHIP as opp_WHIP, # 10
     ra.Pythag as opp_Pythag, # 11
     ra.ISO as opp_ISO, # 12
-    ra.OBP as opp_OBP # 13
+    ra.OBP as opp_OBP, # 13
+    ra.BABIP as BABIP, #14
+    ra.DICE as DICE
 FROM roll_avg ra
 WHERE ra.home_team=0
 )
@@ -210,6 +222,8 @@ CREATE TABLE IF NOT EXISTS final_table(
     hts.ISO - ats.opp_ISO AS diff_ISO, # 11
     hts.WHIP - ats.opp_WHIP as diff_WHIP, # 12
     hts.OBP - ats.opp_OBP as diff_OBP, # 13
+    hts.BABIP - ats.BABIP as diff_BABIP,
+    hts.DICE - ats.DICE as diff_DICE,
     hts.Home_Team_Win as Home_Team_Win
 FROM home_team_stats hts
 JOIN away_team_stats ats on hts.game_id = ats.game_id
@@ -219,3 +233,5 @@ ORDER BY hts.local_date
 SELECT * FROM
 final_table
 LIMIT 0,20;
+
+

@@ -1,14 +1,14 @@
 version: "3.3"
 # Altered what I found on beekeeperstudio.io/blog/how-to-use-mariadb-with-docker
 services:
-  mariadb:
-    container_name: mariadb
+  mariadb_container:
+    container_name: mariadb_container
     build:
       context: .
       #dockerfile: Dockerfile
     image: mariadb:latest
     ports:
-      - "4041:3306"
+      - "4040:3306"
     volumes:
       - ./baseball.sql:/docker-entrypoint-initdb.d/baseball.sql
       - ./hw_05.sql:/docker-entrypoint-initdb.d/hw_05.sql
@@ -23,6 +23,6 @@ services:
       dockerfile: Dockerfile
     image: ubuntu:latest
     volumes:
-      - ./hw_05.py:/docker-entrypoint-initdb.d/hw_05.py
+      - .:/app
     depends_on:
-      - mariadb
+      - mariadb_container
