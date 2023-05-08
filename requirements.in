@@ -13,4 +13,4 @@ nbformat >=4.2.0
 pretty_html_table
 pyspark
 mariadb
-
+sqlalchemy<2.0

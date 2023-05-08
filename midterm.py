@@ -1,4 +1,3 @@
-
 import webbrowser
 
 import numpy as np
@@ -185,7 +184,6 @@ def diff_mean_2d(data, feature_1, feature_2, response, data_types):
     )
 
     return diff_unweighted, diff_weighted
-
 
 
 def midterm_stuff(ds_name, data, features, response):
@@ -440,7 +438,6 @@ def midterm_stuff(ds_name, data, features, response):
     with open("Feature Analysis.html", "w") as midterm:
         midterm.write(
             f"<h1> {ds_name} </h1>"
-
             + df.to_html(render_links=True, escape=False, index=False)
             + "<h1> Categorical/Categorical Predictor </h1>"
             + "<h2> Tschuprow </h2>"
@@ -449,12 +446,10 @@ def midterm_stuff(ds_name, data, features, response):
             + "<h2> Cramer </h2>"
             + Cramer
             + df_cramer.to_html(render_links=True, escape=False, index=False)
-
             + "<h2> Categorical/Continuous Predictors</h2>"
             + CatCont
             + df_cc.to_html(render_links=True, escape=False, index=False)
             + "<h2> Continuous/Continuous Predictors </h2>"
-
             + Pearson
             + df_pearson.to_html(render_links=True, escape=False, index=False)
             + "<h1> Brute Force </h1>"
@@ -469,4 +464,3 @@ def midterm_stuff(ds_name, data, features, response):
     webbrowser.open("Feature Analysis.html")
 
     return
-

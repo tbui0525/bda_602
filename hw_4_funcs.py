@@ -87,7 +87,6 @@ def diff_of_mean(data, feature, response, data_types):
         diff_weighted = np.nansum((means - np.mean(data[response])) ** 2 * weight)
     fig.write_html(
         f"figures/{feature} vs {response} MoR plot.html", include_plotlyjs="cdn"
-
     )
     return diff_unweighted, diff_weighted
 
@@ -106,6 +105,8 @@ def algos(data, feature, response, data_types):
 
     elif data_types[response] == "bool" and data_types[feature] == "cont":
         x = sm.add_constant(x)
+        print(feature)
+        print(response)
         linreg = sm.Logit(y, x).fit()
 
         t_value = round(linreg.tvalues[1], 6)

@@ -1,0 +1,27 @@
+version: "3.3"
+# Altered what I found on beekeeperstudio.io/blog/how-to-use-mariadb-with-docker
+services:
+  mariadb_container:
+    container_name: mariadb_container
+    image: mariadb:latest
+    #restart: always
+    #tty: true
+    ports:
+      - "1729:3306"
+    volumes:
+      - ./baseball.sql:/docker-entrypoint-initdb.d/baseball.sql
+      - ./hw_05.sql:/docker-entrypoint-initdb.d/hw_05.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=jIg688xaj? # pragma: allowlist secret
+      - MYSQL_DATABASE=baseball
+
+  python_container:
+    container_name: python_container
+    command: sh -c "echo 'Night Night'; sleep 600; echo 'Rise and Shine'; python3 hw_05.py"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    depends_on:
+      - mariadb_container
