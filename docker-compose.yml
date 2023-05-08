@@ -21,7 +21,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ubuntu:latest
     volumes:
       - .:/app
     depends_on:
