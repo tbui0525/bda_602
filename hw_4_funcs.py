@@ -87,7 +87,6 @@ def diff_of_mean(data, feature, response, data_types):
         diff_weighted = np.nansum((means - np.mean(data[response])) ** 2 * weight)
     fig.write_html(
         f"figures/{feature} vs {response} MoR plot.html", include_plotlyjs="cdn"
-
     )
     return diff_unweighted, diff_weighted
 

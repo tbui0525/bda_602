@@ -1,12 +1,12 @@
 import sys
 
-from sklearn.ensemble import RandomForestClassifier
-import statsmodels.api
-from statsmodels.api import Logit
-from sklearn.metrics import classification_report, roc_auc_score
 import pandas as pd
 import sqlalchemy
+import statsmodels.api
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import roc_auc_score
 from sqlalchemy import text
+from statsmodels.api import Logit
 
 from midterm import midterm_stuff
 
@@ -44,7 +44,7 @@ def main():
     user = "root"
     password = "jIg688xaj?"  # pragma: allowlist secret
     host = "localhost"
-    #host = "mariadb_container"
+    # host = "mariadb_container"
     db = "baseball"
     connect_string = f"mariadb+mariadbconnector://{user}:{password}@{host}/{db}"  # pragma: allowlist secret
     sql_engine = sqlalchemy.create_engine(connect_string)
@@ -94,12 +94,17 @@ def main():
     with 9 features instead of 15.
     """
     print(data.head())
-    new_data = data.drop(["diff_BA",
-                          "diff_Score_Diff",
-                          "diff_thrown",
-                          "diff_CERA",
-                          "diff_Pythag",
-                          "diff_DICE"], axis=1)
+    new_data = data.drop(
+        [
+            "diff_BA",
+            "diff_Score_Diff",
+            "diff_thrown",
+            "diff_CERA",
+            "diff_Pythag",
+            "diff_DICE",
+        ],
+        axis=1,
+    )
     reduced_features = new_data.columns[4:-1]
     model(new_data, reduced_features)
     """
