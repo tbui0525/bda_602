@@ -68,20 +68,34 @@ And after running the original model, I get the following AUC values:
 | PCA | 53.5| 49.8 (again, makes 0 sense to me too) |
 
 Given this terminal output:
-                         Logit Regression Results                          
+
+                         Logit Regression Results 
+                         
 ==============================================================================
 Dep. Variable:          Home_Team_Win   No. Observations:                12516
+
 Model:                          Logit   Df Residuals:                    12501
+
 Method:                           MLE   Df Model:                           14
+
 Date:                Tue, 09 May 2023   Pseudo R-squ.:                 0.01312
+
 Time:                        14:27:02   Log-Likelihood:                -8412.3
+
 converged:                       True   LL-Null:                       -8524.2
+
 Covariance Type:            nonrobust   LLR p-value:                 7.846e-40
+
 ===================================================================================
+
                       coef    std err          z      P>|z|      [0.025      0.975]
+                      
 -----------------------------------------------------------------------------------
+
 const               0.3167      0.018     17.321      0.000       0.281       0.352
+
 diff_OBA           15.6353      3.747      4.172      0.000       8.290      22.980
+
 diff_XBH            0.7739      0.152      5.078      0.000       0.475       1.073
 diff_Score_Diff     0.4005      0.312      1.285      0.199      -0.210       1.011
 diff_inn_p         -0.9028      0.162     -5.558      0.000      -1.221      -0.584
