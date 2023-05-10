@@ -13,6 +13,7 @@ This dataset does have many errors such as repeated columns, missing data, dupli
 - OBP, XBH, ISO: batting stats that take into account how many bases are run (weight factors for doubles, triples, HRs)
 - Avg pitches thrown per game, avg innings pitched
 
+All of these rolling averages are over the span of 365 days. In addition, because there is a rolling average, there tends to be a lot of NaN values. Teams' first games, new starting pitcher, etc. So for the purposes of this analysis, I have made The NaNs the column mean in the Pandas DataFrame,
 I performed some exploratory data analysis in Python using Plotly to graph the data. One example is here:
 
 ![Innings Pitched Unclipped](https://github.com/tbui0525/bda_602/assets/82955352/da7e8cba-75ef-433f-924e-cc4e6b5b33ef)
@@ -21,7 +22,7 @@ This is the graph of innnings pitched of the starting pitcher. Here we see an cl
 
 ![Innings Pitched Clipped](https://github.com/tbui0525/bda_602/assets/82955352/043c287a-1343-446d-a46c-f3ee279abd9c)
 
-This, to me, is shocking. It would make sense to me, at least, that if you have a good starting pitcher, you let them pitch 6-7 innings. This is known as a quality start for a reason right? Yet, according to the data, if the home starting pitcher on average pitches more innings than the away starting pitcher, then the home team is more likely to lose. This trend is not only prevalent in the innings_pitched feature, but all of my features. Just for a few examples, I will put down my other best features here:
+This, to me, is shocking. It would make sense to me, at least, that if you have a good starting pitcher, you let them pitch 6-7 innings. This is known as a quality start for a reason right? Yet, according to the data, if the home starting pitcher on average pitches more innings than the away starting pitcher, then the home team is more likely to lose. This trend is not only prevalent in the innings_pitched feature, but all of my features. You know what they say, one is an incident, two is a coincidence, three is a statistic (or something like that):
 
 WHIP
 
@@ -29,4 +30,23 @@ WHIP
 
 ![WHIP clipped](https://github.com/tbui0525/bda_602/assets/82955352/a4f60e8c-3551-44d2-9735-80f756cc50ec)
 
+OBA
 
+![OBA unclipped](https://github.com/tbui0525/bda_602/assets/82955352/c77ede12-1374-4ba7-9894-58040252d4a4)
+
+
+![OBA clipped](https://github.com/tbui0525/bda_602/assets/82955352/32b1e365-b6c7-458c-86eb-8423f181705a)
+
+Here is the original analysis between predictor and response before clipping.
+
+![baseball](https://github.com/tbui0525/bda_602/assets/82955352/78f67416-d341-44ad-9c94-931cb9841caa)
+
+and if we compare that to running EDA on the clipped dataset, we return this table:
+
+![clipped baseball](https://github.com/tbui0525/bda_602/assets/82955352/f9ae489a-3bfe-4895-8be4-36a1cf564742)
+
+Doing this gives us a good idea of which features will be helpful. I also made a correlation table to see how much overlap there will be in the features. Why use two features that are practically the same when you could just use one? 
+
+![Correlation Plot](https://github.com/tbui0525/bda_602/assets/82955352/9e8b96d7-8c82-42a9-b9a5-dc615c6ee25e)
+
+Clearly variables such as Pythag and Avg_Score_Diff are very similar as well as average pitches thrown with average pitches per inning, and OBA and Whip scoring the highest. This would probably mean that some of those variables will be dropped when we do our modelling.
