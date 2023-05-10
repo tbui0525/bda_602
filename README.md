@@ -67,79 +67,34 @@ And after running the original model, I get the following AUC values:
 | OG | 52.8 | 49.7 (how? just flip the 0s and 1s) |
 | PCA | 53.5| 49.8 (again, makes 0 sense to me too) |
 
-Given this terminal output:
-
-                         Logit Regression Results 
-                         
-==============================================================================
-Dep. Variable:          Home_Team_Win   No. Observations:                12516
-
-Model:                          Logit   Df Residuals:                    12501
-
-Method:                           MLE   Df Model:                           14
-
-Date:                Tue, 09 May 2023   Pseudo R-squ.:                 0.01312
-
-Time:                        14:27:02   Log-Likelihood:                -8412.3
-
-converged:                       True   LL-Null:                       -8524.2
-
-Covariance Type:            nonrobust   LLR p-value:                 7.846e-40
-
-===================================================================================
-
-                      coef    std err          z      P>|z|      [0.025      0.975]
-                      
------------------------------------------------------------------------------------
-
-const               0.3167      0.018     17.321      0.000       0.281       0.352
-
-diff_OBA           15.6353      3.747      4.172      0.000       8.290      22.980
-
-diff_XBH            0.7739      0.152      5.078      0.000       0.475       1.073
-diff_Score_Diff     0.4005      0.312      1.285      0.199      -0.210       1.011
-diff_inn_p         -0.9028      0.162     -5.558      0.000      -1.221      -0.584
-diff_thrown        -0.3054      0.411     -0.744      0.457      -1.110       0.500
-diff_ppi            2.1165      2.094      1.011      0.312      -1.988       6.221
-diff_CERA        -6.61e-06   3.96e-05     -0.167      0.867   -8.43e-05     7.1e-05
-diff_PTB            0.0006      0.001      1.033      0.302      -0.001       0.002
-diff_Pythag        -2.9521      2.967     -0.995      0.320      -8.768       2.864
-diff_ISO          -12.6189      2.316     -5.449      0.000     -17.158      -8.080
-diff_WHIP          -2.0677      0.394     -5.253      0.000      -2.839      -1.296
-diff_OBP            2.6015      0.304      8.568      0.000       2.006       3.197
-diff_BABIP         -8.5542      1.745     -4.903      0.000     -11.974      -5.135
-diff_DICE        4.243e-05   1.69e-05      2.515      0.012    9.37e-06    7.55e-05
-===================================================================================
-Logistic ROC AUC Score:  0.5284504323650231
-
-I found some key features to eliminate from the model: batting average, Score_Diff, pitches thrown, pitcher per inning, CERA, PTB, and Pythag.
-
-As for the PCA model, this is the Logit results from that end:
-
-              Logit Regression Results                          
-==============================================================================
-Dep. Variable:          Home_Team_Win   No. Observations:                12516
-Model:                          Logit   Df Residuals:                    12508
-Method:                           MLE   Df Model:                            7
-Date:                Tue, 09 May 2023   Pseudo R-squ.:                0.005335
-Time:                        15:12:17   Log-Likelihood:                -8478.7
-converged:                       True   LL-Null:                       -8524.2
-Covariance Type:            nonrobust   LLR p-value:                 7.860e-17
-==============================================================================
-                 coef    std err          z      P>|z|      [0.025      0.975]
-------------------------------------------------------------------------------
-const          0.3152      0.018     17.347      0.000       0.280       0.351
-x1             0.0017      0.009      0.184      0.854      -0.016       0.019
-x2            -0.0200      0.011     -1.879      0.060      -0.041       0.001
-x3             0.0128      0.012      1.065      0.287      -0.011       0.037
-x4             0.1025      0.015      6.721      0.000       0.073       0.132
-x5            -0.0384      0.016     -2.348      0.019      -0.070      -0.006
-x6             0.0323      0.021      1.518      0.129      -0.009       0.074
-x7            -0.1419      0.025     -5.752      0.000      -0.190      -0.094
-==============================================================================
-Logistic ROC AUC Score:  0.5356303470182473
+Given the terminal output, I found some key features to eliminate from the model: batting average, Score_Diff, pitches thrown, pitcher per inning, CERA, PTB, and Pythag. As for the PCA model, we can drop x1 (the feature with the most variation), x3, and x6. By doing that, we have our improved 4 base models through feature reduction as such:
 
 
+| | Logit | Random Forest |
+| --- | --- | ---|
+| OG | 52.8 | 50 |
+| PCA | 54.1 (Yay! 54 barrier broken!)| 50.5|
+
+From here, it was less about deleting features, but adding good ones. So, let's take a look at one of my best features, OBP. Looking at this mean of response plot, it seems that there are two slops. Before the 0 make, all of the data is below the red line with some up and down fluctuation. After the -0.01 mark though, there is a clear change in trajectory, moving upwards with a high magnitude slope. So by adding this line in our code:
+
+``` python3
+  newer_data["OBP_hinge"] = [max(0, i-0.01) for i in data["diff_OBP"].tolist()]
+```
+which was inspired from here: https://teaching.mrsharky.com/sdsu_fall_2020_lecture10.html#/3/15/12
+
+This led a significant improvement in the model. Having a new feature means I would have to redo the PCA analysis to preserve the orthonormality of the features and whatnot. So, reduced features plus one new knot point later and this is the result we are left with:
+
+| | Logit | Random Forest |
+| --- | --- | ---|
+| OG | 54.2 | 49.5 |
+| PCA | 55 (Yay! 55 barrier broken!)| 49.9|
+
+Again, random forests are somehow still giving me an AUC \times 100 of under 50 so... it should just flip the inequalities splitting the branches.
+
+
+Overall, pretty decently happy with my results. I know there is a lot more to do given the time and effort. Maybe could have created some crazy new feature or used some wild model like XGBoost, but as for now, predicting Home_Team_Wins over the natural win rate (about 54% according to Bing) shows some good progress.
+
+![54percent](https://github.com/tbui0525/bda_602/assets/82955352/97b71ef1-c202-46bb-b585-db7f42cdd9a7) 
 
 
 
