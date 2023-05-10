@@ -1,17 +1,49 @@
 import sys
 
+import numpy as np
 import pandas as pd
 import sqlalchemy
 import statsmodels.api
+from sklearn.decomposition import PCA
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
+from sklearn.preprocessing import scale
 from sqlalchemy import text
 from statsmodels.api import Logit
 
 from midterm import midterm_stuff
 
 
-def model(data, features):
+def dead_trees(
+    x_train, y_train, x_test, y_test, hinge=0
+):  # get it? Cuz logs are dead trees?
+    if hinge == 0:
+        predictor = statsmodels.api.add_constant(x_train)
+        pred_test = statsmodels.api.add_constant(x_test)
+    else:
+        predictor = x_train
+        pred_test = x_test
+    pcr_log_model = Logit(y_train, predictor)
+    pcr_log_model_fitted = pcr_log_model.fit()
+    print(pcr_log_model_fitted.summary())
+    pcr_log_pred = pcr_log_model_fitted.predict(pred_test)
+    log_roc_auc = roc_auc_score(y_test, pcr_log_pred)
+    # Using AUC to evaluate model instead of just accuracy or precision.
+    print("Logistic ROC AUC Score: ", log_roc_auc)
+
+
+def trees(
+    x_train, y_train, x_test, y_test
+):  # get it? Cuz forests are a bunch of trees?
+    forest = RandomForestClassifier(n_estimators=100, random_state=69, max_depth=7)
+    forest.fit(x_train, y_train)
+    y_rf_pred = forest.predict(x_test)
+    rf_roc_auc = roc_auc_score(y_test, y_rf_pred)
+
+    print("Random Forest ROC AUC Score: ", rf_roc_auc)
+
+
+def model(data, features, hinge=0):
     split_point = int(len(data) * 0.8)  # creates split point for train-test
     print(split_point)
     train_data = data[:split_point]  # everything up to split point
@@ -20,31 +52,20 @@ def model(data, features):
     test_data = data[split_point:]  # everything from split point
     y_test = test_data["Home_Team_Win"]
     x_test = test_data[features]
-    predictor = statsmodels.api.add_constant(x_train)
-    pred_test = statsmodels.api.add_constant(x_test)
-    logreg_model = Logit(y_train, predictor)
-    logreg_model_fitted = logreg_model.fit()
-    print(logreg_model_fitted.summary())
 
-    y_log_pred = logreg_model_fitted.predict(pred_test)
-    log_roc_auc = roc_auc_score(y_test, y_log_pred)
+    # Logistic Reg
+    dead_trees(x_train, y_train, x_test, y_test, hinge)
 
     # Using AUC to evaluate model instead of just accuracy or precision.
-    print("Logistic ROC AUC Score: ", log_roc_auc)
 
-    forest = RandomForestClassifier(n_estimators=100, random_state=69)
-    forest.fit(x_train, y_train)
-    y_rf_pred = forest.predict(x_test)
-    rf_roc_auc = roc_auc_score(y_test, y_rf_pred)
-
-    print("Random Forest ROC AUC Score: ", rf_roc_auc)
+    trees(x_train, y_train, x_test, y_test)
 
 
 def main():
     user = "root"
     password = "jIg688xaj?"  # pragma: allowlist secret
-    host = "localhost"
-    # host = "mariadb_container"
+    # host = "localhost"
+    host = "mariadb_container"
     db = "baseball"
     connect_string = f"mariadb+mariadbconnector://{user}:{password}@{host}/{db}"  # pragma: allowlist secret
     sql_engine = sqlalchemy.create_engine(connect_string)
@@ -56,80 +77,115 @@ def main():
     response = "Home_Team_Win"
     features = list(data.columns[4:-1])
 
-    data = data.dropna()
     data = data.reset_index()
 
     print(features)
     print(data[response])
     for feature in features:
         data[feature] = data[feature].astype(float)
+        data[feature] = data[feature].fillna(np.nanmean(data[feature]))
     data[response] = data[response].astype(bool)
+
+    midterm_stuff("Baseball", data, features, response, name="")
+    """
+    Looking at those charts, there is clearly an outlier bias going on that may impact the model, so
+    I will clip the outlier data before continuing analysis
+    """
 
     for feature in features:
         low, high = data[feature].quantile([0.05, 0.95])
         data[feature] = data[feature].clip(low, high)
 
-    # dropping first few games since they will have the most skewed data for calculating stats such as BA
-    # cutoff = int(len(data) * 0.05) Decided not to do it because new teams can join and whatnot so not based on date
-    # data = data[cutoff:].reset_index()
-    # print(data)
-    # Midterm Feature Analysis
-
-    midterm_stuff("Baseball", data, features, response)
-
-    # My features seem good based on p-value and t-score. Almost too good.
-    # All of them were below that 5% threshold with my WORST feature here being about 4.99%.
-    # I will just fit a multivariate logistic model for now, but looking at correlations and MoR plots, I
-    # will probably pick Pythag > Avg_Score_Diff, ISO > XBH, and a slight edge to CERA compared to OBA but both those
-    # graphs seem extremely skewed
-
+    midterm_stuff("Baseball", data, features, response, "Clipped ")
+    """
+    Based on this Feature Analysis HTML, we see our two strongest independent features OBP and inn_p also
+    have the 2nd highest Brute Force MoR value. Let's add that feature into our dataset. Since it is in pandas, we
+    can simply add the column
+    """
+    # data["OBP_inn_p"] = (data["diff_OBP"]+1)/(data["diff_inn_p"]+1)
+    # features = list(data.columns[4:].drop("Home_Team_Win"))
     # For train-test split, we cannot do a random split because the data is time-based.
     # The data is already sorted by local_date, so we can split it 80-20 directly
     model(data, features)
 
     """
-    Clear example of overfitting. WHen I had 10 features, as per hw 5, I had a logistic AUC score of 0.52,
-    but with 5 more predictors, a 50% increase, the AUC score has dropped to 0.51. Given the summary, we can
-    drop Team Batting Average, diff_Score_Diff, diff_CERA, diff_Pythag, diff_WHIP, and diff_DIce. This leaves us
-    with 9 features instead of 15.
+    ROC AUC socre is 52.5 for Logistic and 50 for Random Forest. Let's drop some not so good features.
+    Looks like CERA has and PTB are really bad. Anything with P > 0.05 will be dropped
     """
-    print(data.head())
+
+    pca = PCA()
+    pca.fit_transform(scale(data[features]))
+    print(np.cumsum(np.round(pca.explained_variance_ratio_, decimals=4) * 100))
+
+    split_point = int(len(data) * 0.8)  # creates split point for train-test
+    print(split_point)
+    train_data = data[:split_point]  # everything up to split point
+    y_train = train_data["Home_Team_Win"]
+    x_train = train_data[features]
+    test_data = data[split_point:]  # everything from split point
+    y_test = test_data["Home_Team_Win"]
+    x_test = test_data[features]
+
+    pca_train = pca.fit_transform(scale(x_train))[:, 0:7]
+    pca_test = pca.transform(scale(x_test))[:, 0:7]
+
+    dead_trees(pca_train, y_train, pca_test, y_test)
+    trees(pca_train, y_train, pca_test, y_test)
+    """
+    53.7 for PCA Logit and 49.8 for PCA Random Forest. So significantly better than no PCA
+    """
+    # Looks like first 7 features cover about 95% of variance. First 6 covers about 90%. Unsure which to choose
     new_data = data.drop(
         [
             "diff_BA",
             "diff_Score_Diff",
             "diff_thrown",
+            "diff_ppi",
             "diff_CERA",
-            "diff_Pythag",
-            "diff_DICE",
+            "diff_PTB",
         ],
         axis=1,
     )
-    reduced_features = new_data.columns[4:-1]
+    reduced_features = new_data.columns[4:].drop("Home_Team_Win")
     model(new_data, reduced_features)
+    pca_train = pca_train[:, [1, 3, 4, 6]]
+    pca_test = pca_test[:, [1, 3, 4, 6]]
+    dead_trees(pca_train, y_train, pca_test, y_test)
+    trees(pca_train, y_train, pca_test, y_test)
+    #
+    # Logit did not change much, but we reduced features, so that is good nonetheless, Random Forest had minor
+    # improvements, but the key improvements were made in the PCA computations with PCA Logit (without sprinkles)
+    # breaking the 54 barrier and Random Forest finally being slightly better than guessing. Let's see what happens
+    # when we take our best features and a knot point where the slope changes.
+    # """
+    newer_data = new_data.drop("diff_Pythag", axis=1)
+    newer_data["OBP_hinge"] = [max(0, i - 0.01) for i in data["diff_OBP"].tolist()]
+
+    reducer_features = newer_data.columns[4:].drop(["Home_Team_Win"])
+    model(newer_data, reducer_features, hinge=1)
+
+    pca.fit_transform(scale(newer_data[reducer_features]))
+    print(np.cumsum(np.round(pca.explained_variance_ratio_, decimals=4) * 100))
+    split_point = int(len(newer_data) * 0.8)  # creates split point for train-test
+    print(split_point)
+    train_data = newer_data[:split_point]  # everything up to split point
+    y_train = train_data["Home_Team_Win"]
+    x_train = train_data[reducer_features]
+    test_data = newer_data[split_point:]  # everything from split point
+    y_test = test_data["Home_Team_Win"]
+    x_test = test_data[reducer_features]
+
+    pca_train = pca.fit_transform(scale(x_train))[:, 0:6]
+    pca_test = pca.transform(scale(x_test))[:, 0:6]
+
+    dead_trees(pca_train, y_train, pca_test, y_test)
+    trees(pca_train, y_train, pca_test, y_test)
+
     """
-    Logistic Model went from 51  to 51.3. Random forest went up from 49.7 to 51.
-    So small improvement, but now we drop highly correlated features. Which from Feature Analysis.html
-    shows that XBH and ISO have a correlation of above 90%. Pythag and Score DIff are already dropped for this.
-    Comparing their Mean of Response plots, ISO seems to be more helpful (probably due to the weights in
-    calculations). ISO is doubles + 2*triples + 3*hr whereas XBH is just doubles+triples+HR.
-    Also drop WHIP since p score about 33%. And if this goes well, maybe add knot point to ISO as well.
+        After adding hinge points we now have OG Logit at 54.2, Rand Forest at 49.4 (Poor random forest)
+        PCA Logit at about 55 (new barrier broken!) and random forest at 49.9. I think that although I could do
+        more for the final project, this is a good place to end.
     """
-    newer_data = new_data.drop(["diff_XBH", "diff_WHIP"], axis=1)
-    reducer_features = newer_data.columns[4:-1]
-    model(newer_data, reducer_features)
-    """
-        51.5 but now it looks like ISO is bad, so maybe drop that too. Or do the hinge point.
-        Test hinge point first to see because it looks like there's a clear hinge point for that
-        Mean of Response plot. Slope increases to the right
-    """
-    # newer_data["ISO_hinge"] = [max(0, i + 0.011) for i in newer_data["diff_ISO"].tolist()]
-    # reducer_features = reducer_features[4:]
-    # reducer_features = reducer_features.tolist().drop()
-    # model(newer_data, reducer_features)
-    # fourth_data = newer_data.drop(["diff_PTB", "diff_BABIP"], axis=1)
-    # fourth_features = fourth_data.columns[3:-1]
-    # model(fourth_data, fourth_features)
 
     return 0
 

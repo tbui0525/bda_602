@@ -1,0 +1,5548 @@
+<h1>Baseball</h1>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right">
+      <th>Response</th>
+      <th>Predictor</th>
+      <th>Response Type</th>
+      <th>Predictor Type</th>
+      <th>EDA</th>
+      <th>P Value</th>
+      <th>T Statistic</th>
+      <th>MoR Plot</th>
+      <th>Diff of Mean (unweighted)</th>
+      <th>Diff of Mean (weighted)</th>
+      <th>Random Forest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_OBA</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>5.771101e-01</td>
+      <td>0.557611</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000287</td>
+      <td>0.000274</td>
+      <td>0.068185</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_XBH</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>5.239382e-01</td>
+      <td>-0.637287</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000343</td>
+      <td>0.000356</td>
+      <td>0.070382</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_Score_Diff</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>6.053891e-01</td>
+      <td>0.516666</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000371</td>
+      <td>0.000279</td>
+      <td>0.063354</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_inn_p</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>5.671389e-10</td>
+      <td>-6.199303</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000800</td>
+      <td>0.000719</td>
+      <td>0.074807</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_thrown</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>1.710328e-01</td>
+      <td>-1.368893</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000212</td>
+      <td>0.000206</td>
+      <td>0.068248</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_ppi</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>6.534127e-01</td>
+      <td>0.449026</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000700</td>
+      <td>0.000619</td>
+      <td>0.068513</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_CERA</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>8.836597e-03</td>
+      <td>-2.618312</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000558</td>
+      <td>0.000547</td>
+      <td>0.070116</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_PTB</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>3.148819e-01</td>
+      <td>-1.005031</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000381</td>
+      <td>0.000422</td>
+      <td>0.070910</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_Pythag</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>7.114542e-01</td>
+      <td>0.369904</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000171</td>
+      <td>0.000169</td>
+      <td>0.063206</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_ISO</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>3.920077e-02</td>
+      <td>-2.062073</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000352</td>
+      <td>0.000339</td>
+      <td>0.070256</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_WHIP</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>7.032105e-01</td>
+      <td>-0.380990</td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000646</td>
+      <td>0.000533</td>
+      <td>0.069496</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_OBP</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>4.810051e-18</td>
+      <td>8.657788</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.001523</td>
+      <td>0.001322</td>
+      <td>0.086161</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_BABIP</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>8.499181e-01</td>
+      <td>0.189223</td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000206</td>
+      <td>0.000235</td>
+      <td>0.074395</td>
+    </tr>
+    <tr>
+      <td>Home_Team_Win</td>
+      <td>diff_DICE</td>
+      <td>bool</td>
+      <td>cont</td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>1.629530e-01</td>
+      <td>-1.395208</td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win MoR plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>0.000751</td>
+      <td>0.000922</td>
+      <td>0.081972</td>
+    </tr>
+  </tbody>
+</table>
+<h1>Categorical/Categorical Predictor</h1>
+<h2>Tschuprow</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
+      <div
+        id="ae65b919-b38f-4ac4-99de-da4b576abbc0"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("ae65b919-b38f-4ac4-99de-da4b576abbc0")) {
+          Plotly.newPlot(
+            "ae65b919-b38f-4ac4-99de-da4b576abbc0",
+            [
+              {
+                coloraxis: "coloraxis",
+                name: "0",
+                texttemplate: "%{z}",
+                x: [],
+                y: [],
+                z: [],
+                type: "heatmap",
+                xaxis: "x",
+                yaxis: "y",
+                hovertemplate:
+                  "x: %{x}<br>y: %{y}<br>color: %{z}<extra></extra>",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+              xaxis: {
+                anchor: "y",
+                domain: [0.0, 1.0],
+                scaleanchor: "y",
+                constrain: "domain",
+              },
+              yaxis: {
+                anchor: "x",
+                domain: [0.0, 1.0],
+                autorange: "reversed",
+                constrain: "domain",
+              },
+              coloraxis: {
+                colorscale: [
+                  [0.0, "#313131"],
+                  [0.0625, "#97023d"],
+                  [0.125, "#d90d39"],
+                  [0.1875, "#f8432d"],
+                  [0.25, "#ff8e25"],
+                  [0.3125, "#f7da29"],
+                  [0.375, "#fafd5b"],
+                  [0.4375, "#fffda9"],
+                  [0.5, "#f3f3f1"],
+                  [0.5625, "#aefdff"],
+                  [0.625, "#60fdfa"],
+                  [0.6875, "#2adef6"],
+                  [0.75, "#2593ff"],
+                  [0.8125, "#2d47f9"],
+                  [0.875, "#3810dc"],
+                  [0.9375, "#3d019d"],
+                  [1.0, "#313131"],
+                ],
+                cmin: -1,
+                cmax: 1,
+              },
+              margin: { t: 60 },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+  </body>
+</html>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right">
+      <th>cat_1</th>
+      <th>cat_2</th>
+      <th>Tschuprow corr</th>
+      <th>cat_1 plot</th>
+      <th>cat_2 plot</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<h2>Cramer</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
+      <div
+        id="3777c84d-0cef-4a31-9189-33de7de4ca4f"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("3777c84d-0cef-4a31-9189-33de7de4ca4f")) {
+          Plotly.newPlot(
+            "3777c84d-0cef-4a31-9189-33de7de4ca4f",
+            [
+              {
+                coloraxis: "coloraxis",
+                name: "0",
+                texttemplate: "%{z}",
+                x: [],
+                y: [],
+                z: [],
+                type: "heatmap",
+                xaxis: "x",
+                yaxis: "y",
+                hovertemplate:
+                  "x: %{x}<br>y: %{y}<br>color: %{z}<extra></extra>",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+              xaxis: {
+                anchor: "y",
+                domain: [0.0, 1.0],
+                scaleanchor: "y",
+                constrain: "domain",
+              },
+              yaxis: {
+                anchor: "x",
+                domain: [0.0, 1.0],
+                autorange: "reversed",
+                constrain: "domain",
+              },
+              coloraxis: {
+                colorscale: [
+                  [0.0, "#313131"],
+                  [0.0625, "#97023d"],
+                  [0.125, "#d90d39"],
+                  [0.1875, "#f8432d"],
+                  [0.25, "#ff8e25"],
+                  [0.3125, "#f7da29"],
+                  [0.375, "#fafd5b"],
+                  [0.4375, "#fffda9"],
+                  [0.5, "#f3f3f1"],
+                  [0.5625, "#aefdff"],
+                  [0.625, "#60fdfa"],
+                  [0.6875, "#2adef6"],
+                  [0.75, "#2593ff"],
+                  [0.8125, "#2d47f9"],
+                  [0.875, "#3810dc"],
+                  [0.9375, "#3d019d"],
+                  [1.0, "#313131"],
+                ],
+                cmin: -1,
+                cmax: 1,
+              },
+              margin: { t: 60 },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+  </body>
+</html>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right">
+      <th>cat_1</th>
+      <th>cat_2</th>
+      <th>Cramer corr</th>
+      <th>cat_1 plot</th>
+      <th>cat_2 plot</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<h2>Categorical/Continuous Predictors</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
+      <div
+        id="44a0a1f5-a69f-45e9-858c-0c6721d9083b"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("44a0a1f5-a69f-45e9-858c-0c6721d9083b")) {
+          Plotly.newPlot(
+            "44a0a1f5-a69f-45e9-858c-0c6721d9083b",
+            [
+              {
+                coloraxis: "coloraxis",
+                name: "0",
+                texttemplate: "%{z}",
+                x: [],
+                y: [
+                  "diff_OBA",
+                  "diff_XBH",
+                  "diff_Score_Diff",
+                  "diff_inn_p",
+                  "diff_thrown",
+                  "diff_ppi",
+                  "diff_CERA",
+                  "diff_PTB",
+                  "diff_Pythag",
+                  "diff_ISO",
+                  "diff_WHIP",
+                  "diff_OBP",
+                  "diff_BABIP",
+                  "diff_DICE",
+                ],
+                z: [[], [], [], [], [], [], [], [], [], [], [], [], [], []],
+                type: "heatmap",
+                xaxis: "x",
+                yaxis: "y",
+                hovertemplate:
+                  "x: %{x}<br>y: %{y}<br>color: %{z}<extra></extra>",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+              xaxis: {
+                anchor: "y",
+                domain: [0.0, 1.0],
+                scaleanchor: "y",
+                constrain: "domain",
+              },
+              yaxis: {
+                anchor: "x",
+                domain: [0.0, 1.0],
+                autorange: "reversed",
+                constrain: "domain",
+              },
+              coloraxis: {
+                colorscale: [
+                  [0.0, "#313131"],
+                  [0.0625, "#97023d"],
+                  [0.125, "#d90d39"],
+                  [0.1875, "#f8432d"],
+                  [0.25, "#ff8e25"],
+                  [0.3125, "#f7da29"],
+                  [0.375, "#fafd5b"],
+                  [0.4375, "#fffda9"],
+                  [0.5, "#f3f3f1"],
+                  [0.5625, "#aefdff"],
+                  [0.625, "#60fdfa"],
+                  [0.6875, "#2adef6"],
+                  [0.75, "#2593ff"],
+                  [0.8125, "#2d47f9"],
+                  [0.875, "#3810dc"],
+                  [0.9375, "#3d019d"],
+                  [1.0, "#313131"],
+                ],
+                cmin: -1,
+                cmax: 1,
+              },
+              margin: { t: 60 },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+  </body>
+</html>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right">
+      <th>cont_feature</th>
+      <th>cat_feature</th>
+      <th>corr ratio</th>
+      <th>cont EDA</th>
+      <th>cat EDA</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<h2>Continuous/Continuous Predictors</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div>
+      <script type="text/javascript">
+        window.PlotlyConfig = { MathJaxConfig: "local" };
+      </script>
+      <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
+      <div
+        id="eb944bc4-e80a-466a-8665-ee9a9606b15d"
+        class="plotly-graph-div"
+        style="height: 100%; width: 100%"
+      ></div>
+      <script type="text/javascript">
+        window.PLOTLYENV = window.PLOTLYENV || {};
+        if (document.getElementById("eb944bc4-e80a-466a-8665-ee9a9606b15d")) {
+          Plotly.newPlot(
+            "eb944bc4-e80a-466a-8665-ee9a9606b15d",
+            [
+              {
+                coloraxis: "coloraxis",
+                name: "0",
+                texttemplate: "%{z}",
+                x: [
+                  "diff_OBA",
+                  "diff_XBH",
+                  "diff_Score_Diff",
+                  "diff_inn_p",
+                  "diff_thrown",
+                  "diff_ppi",
+                  "diff_CERA",
+                  "diff_PTB",
+                  "diff_Pythag",
+                  "diff_ISO",
+                  "diff_WHIP",
+                  "diff_OBP",
+                  "diff_BABIP",
+                  "diff_DICE",
+                ],
+                y: [
+                  "diff_OBA",
+                  "diff_XBH",
+                  "diff_Score_Diff",
+                  "diff_inn_p",
+                  "diff_thrown",
+                  "diff_ppi",
+                  "diff_CERA",
+                  "diff_PTB",
+                  "diff_Pythag",
+                  "diff_ISO",
+                  "diff_WHIP",
+                  "diff_OBP",
+                  "diff_BABIP",
+                  "diff_DICE",
+                ],
+                z: [
+                  [
+                    1.0, 0.021211022968547724, -0.5183449357608284,
+                    -0.49794103011334995, -0.041321424794394955,
+                    0.11404118143693286, 0.4236062112016232, 0.5535140786202837,
+                    -0.5206309932790038, 0.024478249652124178,
+                    0.9252984636979565, 0.01589637164546051,
+                    0.12267535341611217, 0.0189847141713516,
+                  ],
+                  [
+                    0.021211022968547724, 1.0, 0.44851406008333455,
+                    0.05880838610393828, 0.08772852172105285,
+                    0.0548886548740879, 0.28017950454592544,
+                    0.19232028633657636, 0.4474786391723545, 0.9172163542665895,
+                    0.05023058530871527, 0.10370823192282756, 0.401099898682868,
+                    0.010223876759913273,
+                  ],
+                  [
+                    -0.5183449357608284, 0.44851406008333455, 1.0,
+                    0.4165088600467863, -0.20785017073572826,
+                    -0.3071813038494962, -0.10433314844024451,
+                    -0.17795801880076753, 0.9968285368459765,
+                    0.42341466835659536, -0.5912493014623966,
+                    0.08601775023628085, 0.29383999209026396,
+                    -0.05454228026484482,
+                  ],
+                  [
+                    -0.49794103011334995, 0.05880838610393828,
+                    0.4165088600467863, 1.0, -0.29052659881625587,
+                    -0.5312399053117016, 0.20062007687401173,
+                    0.11240710631561482, 0.421861761819838, 0.10461174526836389,
+                    -0.6238080374783459, 0.06298636488428892,
+                    -0.178245313812576, -0.02356792064466158,
+                  ],
+                  [
+                    -0.041321424794394955, 0.08772852172105285,
+                    -0.20785017073572826, -0.29052659881625587, 1.0,
+                    0.9526749789868506, -0.01570395031083475,
+                    -0.25746968109783963, -0.20721031908056411,
+                    0.03830254266002429, 0.24330025572738512,
+                    -0.027255433788310877, 0.03237914712263035,
+                    0.06013033597862865,
+                  ],
+                  [
+                    0.11404118143693286, 0.0548886548740879,
+                    -0.3071813038494962, -0.5312399053117016,
+                    0.9526749789868506, 1.0, -0.06379171187721472,
+                    -0.24965166200647027, -0.3078693843773644,
+                    -0.00040969552763740963, 0.39774554176585775,
+                    -0.04529673024729342, 0.06780345451847473,
+                    0.05664334469147665,
+                  ],
+                  [
+                    0.4236062112016232, 0.28017950454592544,
+                    -0.10433314844024451, 0.20062007687401173,
+                    -0.01570395031083475, -0.06379171187721472, 1.0,
+                    0.9095274625777152, -0.10036085483141402,
+                    0.3298204998976768, 0.3886642593863361, 0.08479277324311868,
+                    -0.0011257649498182145, 0.07414889100482057,
+                  ],
+                  [
+                    0.5535140786202837, 0.19232028633657636,
+                    -0.17795801880076753, 0.11240710631561482,
+                    -0.25746968109783963, -0.24965166200647027,
+                    0.9095274625777152, 1.0, -0.1748469068020783,
+                    0.2525027796870629, 0.4478730717404597, 0.06589169252096976,
+                    -0.016251186082992093, 0.05895335771064911,
+                  ],
+                  [
+                    -0.5206309932790038, 0.4474786391723545, 0.9968285368459765,
+                    0.421861761819838, -0.20721031908056411,
+                    -0.3078693843773644, -0.10036085483141402,
+                    -0.1748469068020783, 1.0, 0.4243381276837192,
+                    -0.5930762414485266, 0.08497701625998258,
+                    0.2857542489771735, -0.05248350470891554,
+                  ],
+                  [
+                    0.024478249652124178, 0.9172163542665895,
+                    0.42341466835659536, 0.10461174526836389,
+                    0.03830254266002429, -0.00040969552763740963,
+                    0.3298204998976768, 0.2525027796870629, 0.4243381276837192,
+                    1.0, 0.035634660789739994, 0.1054758330037324,
+                    0.19847829061300792, 0.015386238088207386,
+                  ],
+                  [
+                    0.9252984636979565, 0.05023058530871527,
+                    -0.5912493014623966, -0.6238080374783459,
+                    0.24330025572738512, 0.39774554176585775,
+                    0.3886642593863361, 0.4478730717404597, -0.5930762414485266,
+                    0.035634660789739994, 1.0, 0.006580965691660818,
+                    0.1359490055989044, 0.04051151674395135,
+                  ],
+                  [
+                    0.01589637164546051, 0.10370823192282756,
+                    0.08601775023628085, 0.06298636488428892,
+                    -0.027255433788310877, -0.04529673024729342,
+                    0.08479277324311868, 0.06589169252096976,
+                    0.08497701625998258, 0.1054758330037324,
+                    0.006580965691660818, 1.0, 0.07719619212744651,
+                    -0.4531560712309142,
+                  ],
+                  [
+                    0.12267535341611217, 0.401099898682868, 0.29383999209026396,
+                    -0.178245313812576, 0.03237914712263035,
+                    0.06780345451847473, -0.0011257649498182145,
+                    -0.016251186082992093, 0.2857542489771735,
+                    0.19847829061300792, 0.1359490055989044,
+                    0.07719619212744651, 1.0, -0.0006623356406815434,
+                  ],
+                  [
+                    0.0189847141713516, 0.010223876759913273,
+                    -0.05454228026484482, -0.02356792064466158,
+                    0.06013033597862865, 0.05664334469147665,
+                    0.07414889100482057, 0.05895335771064911,
+                    -0.05248350470891554, 0.015386238088207386,
+                    0.04051151674395135, -0.4531560712309142,
+                    -0.0006623356406815434, 1.0,
+                  ],
+                ],
+                type: "heatmap",
+                xaxis: "x",
+                yaxis: "y",
+                hovertemplate:
+                  "x: %{x}<br>y: %{y}<br>color: %{z}<extra></extra>",
+              },
+            ],
+            {
+              template: {
+                data: {
+                  histogram2dcontour: [
+                    {
+                      type: "histogram2dcontour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  choropleth: [
+                    {
+                      type: "choropleth",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  histogram2d: [
+                    {
+                      type: "histogram2d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmap: [
+                    {
+                      type: "heatmap",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  heatmapgl: [
+                    {
+                      type: "heatmapgl",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  contourcarpet: [
+                    {
+                      type: "contourcarpet",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  contour: [
+                    {
+                      type: "contour",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  surface: [
+                    {
+                      type: "surface",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                      colorscale: [
+                        [0.0, "#0d0887"],
+                        [0.1111111111111111, "#46039f"],
+                        [0.2222222222222222, "#7201a8"],
+                        [0.3333333333333333, "#9c179e"],
+                        [0.4444444444444444, "#bd3786"],
+                        [0.5555555555555556, "#d8576b"],
+                        [0.6666666666666666, "#ed7953"],
+                        [0.7777777777777778, "#fb9f3a"],
+                        [0.8888888888888888, "#fdca26"],
+                        [1.0, "#f0f921"],
+                      ],
+                    },
+                  ],
+                  mesh3d: [
+                    {
+                      type: "mesh3d",
+                      colorbar: { outlinewidth: 0, ticks: "" },
+                    },
+                  ],
+                  scatter: [
+                    {
+                      fillpattern: {
+                        fillmode: "overlay",
+                        size: 10,
+                        solidity: 0.2,
+                      },
+                      type: "scatter",
+                    },
+                  ],
+                  parcoords: [
+                    {
+                      type: "parcoords",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolargl: [
+                    {
+                      type: "scatterpolargl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  bar: [
+                    {
+                      error_x: { color: "#2a3f5f" },
+                      error_y: { color: "#2a3f5f" },
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "bar",
+                    },
+                  ],
+                  scattergeo: [
+                    {
+                      type: "scattergeo",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterpolar: [
+                    {
+                      type: "scatterpolar",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  histogram: [
+                    {
+                      marker: {
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "histogram",
+                    },
+                  ],
+                  scattergl: [
+                    {
+                      type: "scattergl",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatter3d: [
+                    {
+                      type: "scatter3d",
+                      line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattermapbox: [
+                    {
+                      type: "scattermapbox",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scatterternary: [
+                    {
+                      type: "scatterternary",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  scattercarpet: [
+                    {
+                      type: "scattercarpet",
+                      marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                    },
+                  ],
+                  carpet: [
+                    {
+                      aaxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      baxis: {
+                        endlinecolor: "#2a3f5f",
+                        gridcolor: "white",
+                        linecolor: "white",
+                        minorgridcolor: "white",
+                        startlinecolor: "#2a3f5f",
+                      },
+                      type: "carpet",
+                    },
+                  ],
+                  table: [
+                    {
+                      cells: {
+                        fill: { color: "#EBF0F8" },
+                        line: { color: "white" },
+                      },
+                      header: {
+                        fill: { color: "#C8D4E3" },
+                        line: { color: "white" },
+                      },
+                      type: "table",
+                    },
+                  ],
+                  barpolar: [
+                    {
+                      marker: {
+                        line: { color: "#E5ECF6", width: 0.5 },
+                        pattern: {
+                          fillmode: "overlay",
+                          size: 10,
+                          solidity: 0.2,
+                        },
+                      },
+                      type: "barpolar",
+                    },
+                  ],
+                  pie: [{ automargin: true, type: "pie" }],
+                },
+                layout: {
+                  autotypenumbers: "strict",
+                  colorway: [
+                    "#636efa",
+                    "#EF553B",
+                    "#00cc96",
+                    "#ab63fa",
+                    "#FFA15A",
+                    "#19d3f3",
+                    "#FF6692",
+                    "#B6E880",
+                    "#FF97FF",
+                    "#FECB52",
+                  ],
+                  font: { color: "#2a3f5f" },
+                  hovermode: "closest",
+                  hoverlabel: { align: "left" },
+                  paper_bgcolor: "white",
+                  plot_bgcolor: "#E5ECF6",
+                  polar: {
+                    bgcolor: "#E5ECF6",
+                    angularaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    radialaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  ternary: {
+                    bgcolor: "#E5ECF6",
+                    aaxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    baxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                    caxis: {
+                      gridcolor: "white",
+                      linecolor: "white",
+                      ticks: "",
+                    },
+                  },
+                  coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                  colorscale: {
+                    sequential: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    sequentialminus: [
+                      [0.0, "#0d0887"],
+                      [0.1111111111111111, "#46039f"],
+                      [0.2222222222222222, "#7201a8"],
+                      [0.3333333333333333, "#9c179e"],
+                      [0.4444444444444444, "#bd3786"],
+                      [0.5555555555555556, "#d8576b"],
+                      [0.6666666666666666, "#ed7953"],
+                      [0.7777777777777778, "#fb9f3a"],
+                      [0.8888888888888888, "#fdca26"],
+                      [1.0, "#f0f921"],
+                    ],
+                    diverging: [
+                      [0, "#8e0152"],
+                      [0.1, "#c51b7d"],
+                      [0.2, "#de77ae"],
+                      [0.3, "#f1b6da"],
+                      [0.4, "#fde0ef"],
+                      [0.5, "#f7f7f7"],
+                      [0.6, "#e6f5d0"],
+                      [0.7, "#b8e186"],
+                      [0.8, "#7fbc41"],
+                      [0.9, "#4d9221"],
+                      [1, "#276419"],
+                    ],
+                  },
+                  xaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  yaxis: {
+                    gridcolor: "white",
+                    linecolor: "white",
+                    ticks: "",
+                    title: { standoff: 15 },
+                    zerolinecolor: "white",
+                    automargin: true,
+                    zerolinewidth: 2,
+                  },
+                  scene: {
+                    xaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    yaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                    zaxis: {
+                      backgroundcolor: "#E5ECF6",
+                      gridcolor: "white",
+                      linecolor: "white",
+                      showbackground: true,
+                      ticks: "",
+                      zerolinecolor: "white",
+                      gridwidth: 2,
+                    },
+                  },
+                  shapedefaults: { line: { color: "#2a3f5f" } },
+                  annotationdefaults: {
+                    arrowcolor: "#2a3f5f",
+                    arrowhead: 0,
+                    arrowwidth: 1,
+                  },
+                  geo: {
+                    bgcolor: "white",
+                    landcolor: "#E5ECF6",
+                    subunitcolor: "white",
+                    showland: true,
+                    showlakes: true,
+                    lakecolor: "white",
+                  },
+                  title: { x: 0.05 },
+                  mapbox: { style: "light" },
+                },
+              },
+              xaxis: {
+                anchor: "y",
+                domain: [0.0, 1.0],
+                scaleanchor: "y",
+                constrain: "domain",
+              },
+              yaxis: {
+                anchor: "x",
+                domain: [0.0, 1.0],
+                autorange: "reversed",
+                constrain: "domain",
+              },
+              coloraxis: {
+                colorscale: [
+                  [0.0, "#313131"],
+                  [0.0625, "#97023d"],
+                  [0.125, "#d90d39"],
+                  [0.1875, "#f8432d"],
+                  [0.25, "#ff8e25"],
+                  [0.3125, "#f7da29"],
+                  [0.375, "#fafd5b"],
+                  [0.4375, "#fffda9"],
+                  [0.5, "#f3f3f1"],
+                  [0.5625, "#aefdff"],
+                  [0.625, "#60fdfa"],
+                  [0.6875, "#2adef6"],
+                  [0.75, "#2593ff"],
+                  [0.8125, "#2d47f9"],
+                  [0.875, "#3810dc"],
+                  [0.9375, "#3d019d"],
+                  [1.0, "#313131"],
+                ],
+                cmin: -1,
+                cmax: 1,
+              },
+              margin: { t: 60 },
+            },
+            { responsive: true }
+          );
+        }
+      </script>
+    </div>
+  </body>
+</html>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right">
+      <th>cont_1</th>
+      <th>cont_2</th>
+      <th>pearson corr</th>
+      <th>cont_1 plot</th>
+      <th>cont_2 plot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_Pythag</td>
+      <td>0.996829</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_ppi</td>
+      <td>0.952675</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_WHIP</td>
+      <td>0.925298</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_ISO</td>
+      <td>0.917216</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_PTB</td>
+      <td>0.909527</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_WHIP</td>
+      <td>-0.623808</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_WHIP</td>
+      <td>-0.593076</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_WHIP</td>
+      <td>-0.591249</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_PTB</td>
+      <td>0.553514</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_ppi</td>
+      <td>-0.531240</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_Pythag</td>
+      <td>-0.520631</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_Score_Diff</td>
+      <td>-0.518345</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_inn_p</td>
+      <td>-0.497941</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBP</td>
+      <td>diff_DICE</td>
+      <td>-0.453156</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_Score_Diff</td>
+      <td>0.448514</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_WHIP</td>
+      <td>0.447873</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_Pythag</td>
+      <td>0.447479</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_ISO</td>
+      <td>0.424338</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_CERA</td>
+      <td>0.423606</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_ISO</td>
+      <td>0.423415</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_Pythag</td>
+      <td>0.421862</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_inn_p</td>
+      <td>0.416509</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_BABIP</td>
+      <td>0.401100</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_WHIP</td>
+      <td>0.397746</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_WHIP</td>
+      <td>0.388664</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_ISO</td>
+      <td>0.329820</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_Pythag</td>
+      <td>-0.307869</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_ppi</td>
+      <td>-0.307181</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_BABIP</td>
+      <td>0.293840</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_thrown</td>
+      <td>-0.290527</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_BABIP</td>
+      <td>0.285754</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_CERA</td>
+      <td>0.280180</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_PTB</td>
+      <td>-0.257470</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_ISO</td>
+      <td>0.252503</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_PTB</td>
+      <td>-0.249652</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_WHIP</td>
+      <td>0.243300</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_thrown</td>
+      <td>-0.207850</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_Pythag</td>
+      <td>-0.207210</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_CERA</td>
+      <td>0.200620</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ISO</td>
+      <td>diff_BABIP</td>
+      <td>0.198478</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_PTB</td>
+      <td>0.192320</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_BABIP</td>
+      <td>-0.178245</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_PTB</td>
+      <td>-0.177958</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_Pythag</td>
+      <td>-0.174847</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_WHIP</td>
+      <td>diff_BABIP</td>
+      <td>0.135949</td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_BABIP</td>
+      <td>0.122675</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_ppi</td>
+      <td>0.114041</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_PTB</td>
+      <td>0.112407</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ISO</td>
+      <td>diff_OBP</td>
+      <td>0.105476</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_ISO</td>
+      <td>0.104612</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_CERA</td>
+      <td>-0.104333</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_OBP</td>
+      <td>0.103708</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_Pythag</td>
+      <td>-0.100361</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_thrown</td>
+      <td>0.087729</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_OBP</td>
+      <td>0.086018</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_OBP</td>
+      <td>0.084977</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_OBP</td>
+      <td>0.084793</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBP</td>
+      <td>diff_BABIP</td>
+      <td>0.077196</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_DICE</td>
+      <td>0.074149</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_BABIP</td>
+      <td>0.067803</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_OBP</td>
+      <td>0.065892</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_CERA</td>
+      <td>-0.063792</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_OBP</td>
+      <td>0.062986</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_DICE</td>
+      <td>0.060130</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_DICE</td>
+      <td>0.058953</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_inn_p</td>
+      <td>0.058808</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_DICE</td>
+      <td>0.056643</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_ppi</td>
+      <td>0.054889</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_DICE</td>
+      <td>-0.054542</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_DICE</td>
+      <td>-0.052484</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_WHIP</td>
+      <td>0.050231</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_OBP</td>
+      <td>-0.045297</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_thrown</td>
+      <td>-0.041321</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_WHIP</td>
+      <td>diff_DICE</td>
+      <td>0.040512</td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_ISO</td>
+      <td>0.038303</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ISO</td>
+      <td>diff_WHIP</td>
+      <td>0.035635</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_BABIP</td>
+      <td>0.032379</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_OBP</td>
+      <td>-0.027255</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_ISO</td>
+      <td>0.024478</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_DICE</td>
+      <td>-0.023568</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_XBH</td>
+      <td>0.021211</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_DICE</td>
+      <td>0.018985</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_BABIP</td>
+      <td>-0.016251</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_OBP</td>
+      <td>0.015896</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_CERA</td>
+      <td>-0.015704</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ISO</td>
+      <td>diff_DICE</td>
+      <td>0.015386</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_DICE</td>
+      <td>0.010224</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_WHIP</td>
+      <td>diff_OBP</td>
+      <td>0.006581</td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_BABIP</td>
+      <td>-0.001126</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_BABIP</td>
+      <td>diff_DICE</td>
+      <td>-0.000662</td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_DICE vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_ISO</td>
+      <td>-0.000410</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs Home_Team_Win EDA plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1>Brute Force</h1>
+<h2>Categorical/Categorical</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right">
+      <th>cat_1</th>
+      <th>cat_2</th>
+      <th>diff of mean (uw)</th>
+      <th>diff of mean (w)</th>
+      <th>MoR Plot</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<h2>Categorical/Continuous</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right">
+      <th>cont_feature</th>
+      <th>cat_feature</th>
+      <th>diff of mean (uw)</th>
+      <th>diff of mean (w)</th>
+      <th>MoR Plot</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<h2>Continuous/Continuous</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right">
+      <th>cont_1</th>
+      <th>cont_2</th>
+      <th>diff of mean (uw)</th>
+      <th>diff of mean (w)</th>
+      <th>MoR Plot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>diff_OBP</td>
+      <td>diff_DICE</td>
+      <td>0.013664</td>
+      <td>0.004903</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_OBP</td>
+      <td>0.005890</td>
+      <td>0.004394</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_OBP</td>
+      <td>0.006530</td>
+      <td>0.004381</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_WHIP</td>
+      <td>0.017698</td>
+      <td>0.004253</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_WHIP</td>
+      <td>diff_OBP</td>
+      <td>0.005266</td>
+      <td>0.004242</td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_OBP</td>
+      <td>0.005227</td>
+      <td>0.004000</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_OBP</td>
+      <td>0.005374</td>
+      <td>0.003945</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_DICE</td>
+      <td>0.005895</td>
+      <td>0.003844</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBP</td>
+      <td>diff_BABIP</td>
+      <td>0.004355</td>
+      <td>0.003690</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBP vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_DICE</td>
+      <td>0.006124</td>
+      <td>0.003678</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_WHIP</td>
+      <td>diff_DICE</td>
+      <td>0.005959</td>
+      <td>0.003678</td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_OBP</td>
+      <td>0.005516</td>
+      <td>0.003625</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_DICE</td>
+      <td>0.004326</td>
+      <td>0.003604</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_ppi</td>
+      <td>0.009594</td>
+      <td>0.003521</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_ppi MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_DICE</td>
+      <td>0.005623</td>
+      <td>0.003487</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_thrown</td>
+      <td>0.004726</td>
+      <td>0.003449</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_thrown MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ISO</td>
+      <td>diff_OBP</td>
+      <td>0.004111</td>
+      <td>0.003448</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_ISO</td>
+      <td>0.003956</td>
+      <td>0.003432</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_inn_p</td>
+      <td>0.004008</td>
+      <td>0.003411</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_inn_p MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_WHIP</td>
+      <td>0.004168</td>
+      <td>0.003407</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_OBP</td>
+      <td>0.004928</td>
+      <td>0.003405</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_ppi</td>
+      <td>0.004193</td>
+      <td>0.003391</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_ppi MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_inn_p</td>
+      <td>0.010282</td>
+      <td>0.003365</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_inn_p MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_OBP</td>
+      <td>0.004109</td>
+      <td>0.003361</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_WHIP</td>
+      <td>0.006685</td>
+      <td>0.003320</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_DICE</td>
+      <td>0.007427</td>
+      <td>0.003249</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_OBP</td>
+      <td>0.004384</td>
+      <td>0.003215</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_ppi</td>
+      <td>0.004235</td>
+      <td>0.003202</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_ppi MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_PTB</td>
+      <td>0.003300</td>
+      <td>0.003180</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_PTB MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ISO</td>
+      <td>diff_DICE</td>
+      <td>0.005389</td>
+      <td>0.003091</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_DICE</td>
+      <td>0.005011</td>
+      <td>0.003073</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_CERA</td>
+      <td>0.006447</td>
+      <td>0.003062</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_CERA MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_OBP</td>
+      <td>0.003872</td>
+      <td>0.003038</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs diff_OBP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_BABIP</td>
+      <td>diff_DICE</td>
+      <td>0.004596</td>
+      <td>0.003033</td>
+      <td>
+        <a
+          href="figures/Clipped diff_BABIP vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_Pythag</td>
+      <td>0.004191</td>
+      <td>0.003022</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs diff_Pythag MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_CERA</td>
+      <td>0.003267</td>
+      <td>0.003021</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_CERA MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_ppi</td>
+      <td>0.004631</td>
+      <td>0.002997</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_ppi MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_inn_p</td>
+      <td>0.005799</td>
+      <td>0.002995</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_inn_p MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_CERA</td>
+      <td>0.002952</td>
+      <td>0.002974</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs diff_CERA MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_DICE</td>
+      <td>0.005191</td>
+      <td>0.002963</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_BABIP</td>
+      <td>0.003516</td>
+      <td>0.002936</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_DICE</td>
+      <td>0.004732</td>
+      <td>0.002933</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ISO</td>
+      <td>diff_WHIP</td>
+      <td>0.003359</td>
+      <td>0.002903</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_WHIP</td>
+      <td>0.003937</td>
+      <td>0.002893</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_BABIP</td>
+      <td>0.003214</td>
+      <td>0.002847</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_Pythag</td>
+      <td>0.005475</td>
+      <td>0.002838</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_Pythag MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_PTB</td>
+      <td>0.003862</td>
+      <td>0.002825</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs diff_PTB MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_Score_Diff</td>
+      <td>0.006217</td>
+      <td>0.002801</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_Score_Diff MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_BABIP</td>
+      <td>0.003109</td>
+      <td>0.002782</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_WHIP</td>
+      <td>0.010312</td>
+      <td>0.002776</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_WHIP</td>
+      <td>diff_BABIP</td>
+      <td>0.003021</td>
+      <td>0.002752</td>
+      <td>
+        <a
+          href="figures/Clipped diff_WHIP vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_WHIP</td>
+      <td>0.004543</td>
+      <td>0.002728</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_inn_p</td>
+      <td>diff_ISO</td>
+      <td>0.002844</td>
+      <td>0.002715</td>
+      <td>
+        <a
+          href="figures/Clipped diff_inn_p vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_CERA</td>
+      <td>0.003564</td>
+      <td>0.002679</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_CERA MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_ISO</td>
+      <td>0.005027</td>
+      <td>0.002679</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_DICE</td>
+      <td>0.003750</td>
+      <td>0.002667</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs diff_DICE MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_ISO</td>
+      <td>0.003558</td>
+      <td>0.002667</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_thrown</td>
+      <td>0.003530</td>
+      <td>0.002625</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_thrown MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_PTB</td>
+      <td>0.003409</td>
+      <td>0.002588</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_PTB MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_WHIP</td>
+      <td>0.009578</td>
+      <td>0.002576</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_ISO</td>
+      <td>0.002972</td>
+      <td>0.002555</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_thrown</td>
+      <td>0.004392</td>
+      <td>0.002534</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_thrown MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_thrown</td>
+      <td>0.003736</td>
+      <td>0.002519</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_thrown MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ISO</td>
+      <td>diff_BABIP</td>
+      <td>0.002962</td>
+      <td>0.002493</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ISO vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_WHIP</td>
+      <td>0.003239</td>
+      <td>0.002481</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_ppi</td>
+      <td>diff_BABIP</td>
+      <td>0.002829</td>
+      <td>0.002481</td>
+      <td>
+        <a
+          href="figures/Clipped diff_ppi vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_CERA</td>
+      <td>0.003954</td>
+      <td>0.002446</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_CERA MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_Pythag</td>
+      <td>0.004262</td>
+      <td>0.002443</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_Pythag MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_PTB</td>
+      <td>0.012719</td>
+      <td>0.002368</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs diff_PTB MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_PTB</td>
+      <td>0.003140</td>
+      <td>0.002367</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_PTB MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_Pythag</td>
+      <td>0.005514</td>
+      <td>0.002364</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_Pythag MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_BABIP</td>
+      <td>0.002442</td>
+      <td>0.002354</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_Pythag</td>
+      <td>0.003466</td>
+      <td>0.002351</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_Pythag MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_XBH</td>
+      <td>0.003202</td>
+      <td>0.002349</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_XBH MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_PTB</td>
+      <td>0.004261</td>
+      <td>0.002347</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_PTB MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_ISO</td>
+      <td>0.003922</td>
+      <td>0.002347</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_ISO</td>
+      <td>0.050643</td>
+      <td>0.002300</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_CERA</td>
+      <td>diff_Pythag</td>
+      <td>0.002674</td>
+      <td>0.002272</td>
+      <td>
+        <a
+          href="figures/Clipped diff_CERA vs diff_Pythag MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_Score_Diff</td>
+      <td>0.007224</td>
+      <td>0.002229</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_Score_Diff MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_CERA</td>
+      <td>0.002852</td>
+      <td>0.002218</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_CERA MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_PTB</td>
+      <td>diff_Pythag</td>
+      <td>0.002418</td>
+      <td>0.002184</td>
+      <td>
+        <a
+          href="figures/Clipped diff_PTB vs diff_Pythag MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_ISO</td>
+      <td>0.002757</td>
+      <td>0.002156</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_BABIP</td>
+      <td>0.002842</td>
+      <td>0.002136</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_PTB</td>
+      <td>0.003064</td>
+      <td>0.002114</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_PTB MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_ISO</td>
+      <td>0.003674</td>
+      <td>0.002086</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs diff_ISO MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_thrown</td>
+      <td>diff_ppi</td>
+      <td>0.059954</td>
+      <td>0.002014</td>
+      <td>
+        <a
+          href="figures/Clipped diff_thrown vs diff_ppi MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Pythag</td>
+      <td>diff_BABIP</td>
+      <td>0.002366</td>
+      <td>0.001960</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Pythag vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_OBA</td>
+      <td>diff_WHIP</td>
+      <td>0.043006</td>
+      <td>0.001883</td>
+      <td>
+        <a
+          href="figures/Clipped diff_OBA vs diff_WHIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_BABIP</td>
+      <td>0.002089</td>
+      <td>0.001835</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_XBH</td>
+      <td>diff_BABIP</td>
+      <td>0.002509</td>
+      <td>0.001730</td>
+      <td>
+        <a
+          href="figures/Clipped diff_XBH vs diff_BABIP MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>diff_Score_Diff</td>
+      <td>diff_Pythag</td>
+      <td>0.055926</td>
+      <td>0.000882</td>
+      <td>
+        <a
+          href="figures/Clipped diff_Score_Diff vs diff_Pythag MoR Plot.html"
+          target="_blank"
+          >Plot</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -29,7 +29,7 @@ def cat_subset(data, features, data_types):
     return subset_df
 
 
-def diff_mean_2d(data, feature_1, feature_2, response, data_types):
+def diff_mean_2d(data, feature_1, feature_2, response, data_types, name):
     means = []
     counts = []
     if (data_types[feature_1] == "cat" or len(data[feature_1].unique()) < 10) and (
@@ -180,13 +180,14 @@ def diff_mean_2d(data, feature_1, feature_2, response, data_types):
     fig.update_yaxes(title=f"{feature_1}")
     fig.update_xaxes(title=f"{feature_2}")
     fig.write_html(
-        f"figures/{feature_1} vs {feature_2} MoR Plot.html", include_plotlyjs="cdn"
+        f"figures/{name}{feature_1} vs {feature_2} MoR Plot.html",
+        include_plotlyjs="cdn",
     )
 
     return diff_unweighted, diff_weighted
 
 
-def midterm_stuff(ds_name, data, features, response):
+def midterm_stuff(ds_name, data, features, response, name=""):
 
     data = data.dropna()
     # Determining data_types
@@ -218,19 +219,19 @@ def midterm_stuff(ds_name, data, features, response):
     )
     # Making the original hw_04 table
     for feature in features:
-        eda_plots(data, feature, response, data_types)
+        eda_plots(data, feature, response, data_types, name)
         print(feature)
         t, p = algos(data, feature, response, data_types)
-        unw, w = diff_of_mean(data, feature, response, data_types)
+        unw, w = diff_of_mean(data, feature, response, data_types, name)
         df.loc[len(df)] = [
             response,
             feature,
             data_types[response],
             data_types[feature],
-            f"figures/{feature} vs {response} EDA plot.html",
+            f"figures/{name}{feature} vs {response} EDA plot.html",
             p,
             t,
-            f"figures/{feature} vs {response} MoR plot.html",
+            f"figures/{name}{feature} vs {response} MoR plot.html",
             unw,
             w,
         ]
@@ -265,33 +266,35 @@ def midterm_stuff(ds_name, data, features, response):
                     feature_1,
                     feature_2,
                     corr,
-                    f"figures/{feature_1} vs {response} EDA plot.html",
-                    f"figures/{feature_2} vs {response} EDA plot.html",
+                    f"figures/{name}{feature_1} vs {response} EDA plot.html",
+                    f"figures/{name}{feature_2} vs {response} EDA plot.html",
                 ]
-                uw, w = diff_mean_2d(data, feature_1, feature_2, response, data_types)
+                uw, w = diff_mean_2d(
+                    data, feature_1, feature_2, response, data_types, name
+                )
                 df_bf_contcont.loc[len(df_bf_contcont)] = [
                     feature_1,
                     feature_2,
                     uw,
                     w,
-                    f"figures/{feature_1} vs {feature_2} MoR Plot.html",
+                    f"figures/{name}{feature_1} vs {feature_2} MoR Plot.html",
                 ]
     df_pearson = htmlify(
         df_pearson, link_cols=["cont_1 plot", "cont_2 plot"], sort_col="pearson corr"
     )
-    df_pearson.to_html("Pearson.html", render_links=True, escape=False)
+    df_pearson.to_html(f"{name}Pearson.html", render_links=True, escape=False)
     df_bf_contcont = htmlify(
         df_bf_contcont, link_cols=["MoR Plot"], sort_col="diff of mean (w)"
     )
     df_bf_contcont.to_html(
-        "Cont Cont Brute Force.html", render_links=True, escape=False
+        f"{name}Cont Cont Brute Force.html", render_links=True, escape=False
     )
     # Correlation Plot Pearson
     df_pcorr = subset_cont.corr()
     fig = px.imshow(
         df_pcorr, zmin=-1, zmax=1, text_auto=True, color_continuous_scale="Edge_r"
     )
-    fig.write_html("figures/Pearson Matrix.html", include_plotlyjs="cdn")
+    fig.write_html(f"figures/{name}Pearson Matrix.html", include_plotlyjs="cdn")
 
     # Repeat but for cat-cat
     df_cramer = pd.DataFrame(
@@ -322,15 +325,15 @@ def midterm_stuff(ds_name, data, features, response):
                     feature_1,
                     feature_2,
                     c_corr,
-                    f"figures/{feature_1} vs {response} EDA plot.html",
-                    f"figures/{feature_2} vs {response} EDA plot.html",
+                    f"figures/{name}{feature_1} vs {response} EDA plot.html",
+                    f"figures/{name}{feature_2} vs {response} EDA plot.html",
                 ]
                 df_tschuprow.loc[len(df_tschuprow)] = [
                     feature_1,
                     feature_2,
                     t_corr,
-                    f"figures/{feature_1} vs {response} EDA plot.html",
-                    f"figures/{feature_2} vs {response} EDA plot.html",
+                    f"figures/{name}{feature_1} vs {response} EDA plot.html",
+                    f"figures/{name}{feature_2} vs {response} EDA plot.html",
                 ]
                 uw, w = diff_mean_2d(data, feature_1, feature_2, response, data_types)
                 df_bf_catcat.loc[len(df_bf_catcat)] = [
@@ -338,20 +341,22 @@ def midterm_stuff(ds_name, data, features, response):
                     feature_2,
                     uw,
                     w,
-                    f"figures/{feature_1} vs {feature_2} MoR Plot.html",
+                    f"figures/{name}{feature_1} vs {feature_2} MoR Plot.html",
                 ]
     df_cramer = htmlify(
         df_cramer, link_cols=["cat_1 plot", "cat_2 plot"], sort_col="Cramer corr"
     )
-    df_cramer.to_html("Cramer.html", render_links=True, escape=False)
+    df_cramer.to_html(f"{name}Cramer.html", render_links=True, escape=False)
     df_tschuprow = htmlify(
         df_tschuprow, link_cols=["cat_1 plot", "cat_2 plot"], sort_col="Tschuprow corr"
     )
-    df_tschuprow.to_html("Tschuprow.html", render_links=True, escape=False)
+    df_tschuprow.to_html(f"{name}Tschuprow.html", render_links=True, escape=False)
     df_bf_catcat = htmlify(
         df_bf_catcat, link_cols=["MoR Plot"], sort_col="diff of mean (w)"
     )
-    df_bf_catcat.to_html("Cat Cat Brute Force.html", render_links=True, escape=False)
+    df_bf_catcat.to_html(
+        f"{name}Cat Cat Brute Force.html", render_links=True, escape=False
+    )
 
     fig = px.imshow(
         c_matrix,
@@ -362,7 +367,7 @@ def midterm_stuff(ds_name, data, features, response):
         text_auto=True,
         color_continuous_scale="Edge_r",
     )
-    fig.write_html("figures/Cramer's Matrix.html", include_plotlyjs="cdn")
+    fig.write_html(f"figures/{name}Cramer's Matrix.html", include_plotlyjs="cdn")
     fig = px.imshow(
         t_matrix,
         x=cat_features,
@@ -372,7 +377,7 @@ def midterm_stuff(ds_name, data, features, response):
         text_auto=True,
         color_continuous_scale="Edge_r",
     )
-    fig.write_html("figures/Tschuprow's Matrix.html", include_plotlyjs="cdn")
+    fig.write_html(f"figures/{name}Tschuprow's Matrix.html", include_plotlyjs="cdn")
     # Continuous Categorical
     df_cc = pd.DataFrame(
         columns=["cont_feature", "cat_feature", "corr ratio", "cont EDA", "cat EDA"]
@@ -397,8 +402,8 @@ def midterm_stuff(ds_name, data, features, response):
                 feature_1,
                 feature_2,
                 cn_ratio,
-                f"figures/{feature_1} vs {response} EDA plot.html",
-                f"figures/{feature_2} vs {response} EDA plot.html",
+                f"figures/{name}{feature_1} vs {response} EDA plot.html",
+                f"figures/{name}{feature_2} vs {response} EDA plot.html",
             ]
             uw, w = diff_mean_2d(data, feature_1, feature_2, response, data_types)
             df_bf_cc.loc[len(df_bf_cc)] = [
@@ -406,13 +411,15 @@ def midterm_stuff(ds_name, data, features, response):
                 feature_2,
                 uw,
                 w,
-                f"figures/{feature_1} vs {feature_2} MoR Plot.html",
+                f"figures/{name}{feature_1} vs {feature_2} MoR Plot.html",
             ]
 
     df_bf_cc = htmlify(df_bf_cc, link_cols=["MoR Plot"], sort_col="diff of mean (w)")
-    df_bf_cc.to_html("Cont Cat Brute Force.html", render_links=True, escape=False)
+    df_bf_cc.to_html(
+        f"{name}Cont Cat Brute Force.html", render_links=True, escape=False
+    )
     df_cc = htmlify(df_cc, link_cols=["cont EDA", "cat EDA"], sort_col="corr ratio")
-    df_cc.to_html("ContCat.html", render_links=True, escape=False)
+    df_cc.to_html(f"{name}ContCat.html", render_links=True, escape=False)
     fig = px.imshow(
         catcont_matrix,
         y=cont_features,
@@ -422,20 +429,22 @@ def midterm_stuff(ds_name, data, features, response):
         text_auto=True,
         color_continuous_scale="Edge_r",
     )
-    cc_fig = fig.write_html("figures/CatCont Matrix.html", include_plotlyjs="cdn")
+    cc_fig = fig.write_html(
+        f"figures/{name}CatCont Matrix.html", include_plotlyjs="cdn"
+    )
     print(cc_fig)
     # Reading Figures as HTMLs
-    with open("figures/Tschuprow's Matrix.html", "r") as f:
+    with open(f"figures/{name}Tschuprow's Matrix.html", "r") as f:
         Tschuprow = f.read()
-    with open("figures/Cramer's Matrix.html", "r") as g:
+    with open(f"figures/{name}Cramer's Matrix.html", "r") as g:
         Cramer = g.read()
-    with open("figures/CatCont Matrix.html", "r") as h:
+    with open(f"figures/{name}CatCont Matrix.html", "r") as h:
         CatCont = h.read()
-    with open("figures/Pearson Matrix.html", "r") as i:
+    with open(f"figures/{name}Pearson Matrix.html", "r") as i:
         Pearson = i.read()
     # Combining everything into final HTML doc
 
-    with open("Feature Analysis.html", "w") as midterm:
+    with open(f"{name}Feature Analysis.html", "w") as midterm:
         midterm.write(
             f"<h1> {ds_name} </h1>"
             + df.to_html(render_links=True, escape=False, index=False)
@@ -461,6 +470,6 @@ def midterm_stuff(ds_name, data, features, response):
             + df_bf_contcont.to_html(render_links=True, escape=False, index=False)
         )
 
-    webbrowser.open("Feature Analysis.html")
+    webbrowser.open(f"{name}Feature Analysis.html")
 
     return

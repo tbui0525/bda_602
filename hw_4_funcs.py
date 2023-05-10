@@ -32,7 +32,7 @@ def rand_forest(data, response, features, data_types):
     return col
 
 
-def diff_of_mean(data, feature, response, data_types):
+def diff_of_mean(data, feature, response, data_types, name):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     if data_types[feature] == "cat" or (len(data[feature].unique()) < 10):
         bin_num = len(data[feature].unique())
@@ -86,7 +86,7 @@ def diff_of_mean(data, feature, response, data_types):
         diff_unweighted = np.nansum((means - np.mean(data[response])) ** 2) / 10
         diff_weighted = np.nansum((means - np.mean(data[response])) ** 2 * weight)
     fig.write_html(
-        f"figures/{feature} vs {response} MoR plot.html", include_plotlyjs="cdn"
+        f"figures/{name}{feature} vs {response} MoR plot.html", include_plotlyjs="cdn"
     )
     return diff_unweighted, diff_weighted
 
@@ -121,7 +121,7 @@ def algos(data, feature, response, data_types):
     return t_value, p_value
 
 
-def eda_plots(data, feature, response, data_types):
+def eda_plots(data, feature, response, data_types, name):
     if data_types[response] == "bool":
         if data_types[feature] == "cat":
             cats = data[feature].unique()
@@ -141,6 +141,6 @@ def eda_plots(data, feature, response, data_types):
         else:
             fig = px.scatter(data, feature, response, trendline="ols")
     fig.write_html(
-        f"figures/{feature} vs {response} EDA plot.html", include_plotlyjs="cdn"
+        f"figures/{name}{feature} vs {response} EDA plot.html", include_plotlyjs="cdn"
     )
     return
